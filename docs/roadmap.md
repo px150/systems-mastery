@@ -645,8 +645,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 | Module                   | Status        | Started   | Completed  |
 |--------------------------|---------------|-----------|------------|
 | 0.1 Software Systems Map | ✅ Completed | 2026-07-07 | 2026-07-07 |
-| 0.2 Repository Setup     | ⬜ Planned   |            |            |
-| 0.3 Thinking in Systems  | ⬜ Planned   |            |            |
+| 0.2 Thinking in Systems  | ✅ Completed | 2026-07-07 | 2026-07-07 |
 
 ---
 
