@@ -624,29 +624,29 @@ The Capstone is not a new learning phase, but the integration and validation of 
 
 # Roadmap Status
 
-| Phase     | Status         | Started | Completed | Last Updated |
-|-----------|----------------|----------|-----------|--------------|
-| Phase 0   | ⚪ Not Started |          |           |              |
-| Phase 1   | ⚪ Not Started |          |           |              |
-| Phase 2   | ⚪ Not Started |          |           |              |
-| Phase 3   | ⚪ Not Started |          |           |              |
-| Phase 4   | ⚪ Not Started |          |           |              |
-| Phase 5   | ⚪ Not Started |          |           |              |
-| Phase 6   | ⚪ Not Started |          |           |              |
-| Phase 7   | ⚪ Not Started |          |           |              |
-| Phase 8   | ⚪ Not Started |          |           |              |
-| Phase 9   | ⚪ Not Started |          |           |              |
-| Phase 10  | ⚪ Not Started |          |           |              |
-| Phase 11  | ⚪ Not Started |          |           |              |
-| Phase 12  | ⚪ Not Started |          |           |              |
+| Phase     | Status         | Started     | Completed | Last Updated |
+|-----------|----------------|-------------|-----------|--------------|
+| Phase 0   | 🟡 In Progress | 2026-07-07 |           |              |
+| Phase 1   | ⚪ Not Started |            |           |              |
+| Phase 2   | ⚪ Not Started |            |           |              |
+| Phase 3   | ⚪ Not Started |            |           |              |
+| Phase 4   | ⚪ Not Started |            |           |              |
+| Phase 5   | ⚪ Not Started |            |           |              |
+| Phase 6   | ⚪ Not Started |            |           |              |
+| Phase 7   | ⚪ Not Started |            |           |              |
+| Phase 8   | ⚪ Not Started |            |           |              |
+| Phase 9   | ⚪ Not Started |            |           |              |
+| Phase 10  | ⚪ Not Started |            |           |              |
+| Phase 11  | ⚪ Not Started |            |           |              |
+| Phase 12  | ⚪ Not Started |            |           |              |
 
 ---
 
-| Module | Status | Started | Completed |
-|--------|--------|----------|-----------|
-| 0.1 Software Systems Map | ⬜ Planned | | |
-| 0.2 Repository Setup | ⬜ Planned | | |
-| 0.3 Thinking in Systems | ⬜ Planned | | |
+| Module                   | Status        | Started   | Completed  |
+|--------------------------|---------------|-----------|------------|
+| 0.1 Software Systems Map | ✅ Completed | 2026-07-07 | 2026-07-07 |
+| 0.2 Repository Setup     | ⬜ Planned   |            |            |
+| 0.3 Thinking in Systems  | ⬜ Planned   |            |            |
 
 ---
 
