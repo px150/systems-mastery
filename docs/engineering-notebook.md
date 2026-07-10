@@ -106,3 +106,63 @@ Only then examine the implementation details.
 * Assumption
 
 --------------------------------------------------------------------------------------------
+
+## Computation Is State Transformation
+
+**Context**
+
+Module 0.3 — Computational Thinking
+
+---
+
+### Observation
+
+Computational problems become solvable only after they are expressed as transformations of state.
+
+Rather than thinking in terms of code or operations, engineers first identify:
+
+- the current state;
+- the desired state;
+- the transformations connecting them;
+- the conditions that must remain true throughout those transformations.
+
+---
+
+### Reasoning
+
+Computers cannot execute vague intentions.
+
+They execute precise procedures that transform one valid system state into another.
+
+Viewing software through state transformations provides a technology-independent mental model that naturally applies to algorithms, databases, operating systems, distributed systems and AI runtimes.
+
+Instead of asking how to implement a solution, computational thinking asks how the state should evolve while preserving correctness.
+
+---
+
+### Implications
+
+When approaching a new engineering problem, avoid thinking immediately about languages, frameworks or algorithms.
+
+Instead, ask:
+
+- What information defines the current state?
+- What should the final state look like?
+- Which transformations are required?
+- Which states must never exist?
+- Which invariants must always be preserved?
+- How can the problem be decomposed into independent state transformations?
+
+Once these questions have clear answers, implementation becomes significantly easier.
+
+---
+
+### Related Concepts
+
+* State
+* State Transition
+* Invariant
+* Decomposition
+* Abstraction
+
+--------------------------------------------------------------------------------------------

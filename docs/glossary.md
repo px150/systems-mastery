@@ -256,3 +256,55 @@ Many system failures occur when assumptions about dependencies, inputs or enviro
 **Introduced In**
 
 Module 0.2 — Thinking in Systems
+
+---
+
+## State
+
+**Definition**
+
+The complete information describing a system at a specific point in time.
+
+**Purpose**
+
+Provides the fundamental model for reasoning about computation independently of any implementation or programming language.
+
+**Systems Context**
+
+Software components can be understood as machines that observe state, apply transformations and produce new states. This perspective reappears throughout Systems Mastery, from algorithms to distributed systems and AI runtimes.
+
+**Related Concepts**
+
+* Invariant
+* Responsibility
+* Information Flow
+
+**Introduced In**
+
+Module 0.3 — Computational Thinking
+
+---
+
+## Invariant
+
+**Definition**
+
+A property that must remain true regardless of how a system's state changes.
+
+**Purpose**
+
+Provides a systematic way to reason about correctness by defining which states are always considered valid.
+
+**Systems Context**
+
+State transformations may modify a system, but they should preserve its invariants. Protecting invariants is a fundamental responsibility of software components and will remain a recurring concept throughout Systems Mastery.
+
+**Related Concepts**
+
+* State
+* Responsibility
+* Assumption
+
+**Introduced In**
+
+Module 0.3 — Computational Thinking

@@ -187,8 +187,21 @@ Build the mental map of the software systems ecosystem and establish the develop
 ### Modules
 
 * 0.1 Software Systems Map
-* 0.2 Repository Setup
-* 0.3 Thinking in Systems
+* 0.2 Thinking in Systems
+* 0.3 Computational Thinking
+* 0.4 Fundamental Algorithms & Data Structures
+    * 0.4.1 Complexity Fundamentals
+    * 0.4.2 Arrays & Memory Layout
+    * 0.4.3 Linked Structures
+    * 0.4.4 Stack & Queue
+    * 0.4.5 Trees
+    * 0.4.6 Tree Traversal
+    * 0.4.7 Graphs
+    * 0.4.8 Graph Traversal
+    * 0.4.9 Hash Tables
+    * 0.4.10 Heaps
+    * 0.4.11 Searching
+    * 0.4.12 Sorting
 
 Repository components:
 
@@ -642,10 +655,11 @@ The Capstone is not a new learning phase, but the integration and validation of 
 
 ---
 
-| Module                   | Status        | Started   | Completed  |
-|--------------------------|---------------|-----------|------------|
-| 0.1 Software Systems Map | ✅ Completed | 2026-07-07 | 2026-07-07 |
-| 0.2 Thinking in Systems  | ✅ Completed | 2026-07-07 | 2026-07-07 |
+| Module                      | Status        | Started   | Completed  |
+|-----------------------------|---------------|-----------|------------|
+| 0.1 Software Systems Map    | ✅ Completed | 2026-07-07 | 2026-07-07 |
+| 0.2 Thinking in Systems     | ✅ Completed | 2026-07-07 | 2026-07-07 |
+| 0.3 Computational Thinking  | ✅ Completed | 2026-07-07 | 2026-07-07 |
 
 ---
 
