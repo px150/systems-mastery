@@ -308,3 +308,164 @@ State transformations may modify a system, but they should preserve its invarian
 **Introduced In**
 
 Module 0.3 — Computational Thinking
+
+---
+
+## Computational Complexity
+
+**Definition**
+
+A model describing how the computational resources required by an algorithm grow as the size of its input increases.
+
+**Purpose**
+
+Provides a technology-independent way to evaluate the scalability of computational procedures before considering hardware-specific performance.
+
+**Systems Context**
+
+Complexity analysis helps engineers predict how algorithms behave as systems evolve, making it a fundamental tool for reasoning about software scalability and architectural trade-offs.
+
+**Related Concepts**
+
+* Time Complexity
+* Space Complexity
+* Scalability
+* Trade-off
+
+**Introduced In**
+
+Module 0.4.1 — Complexity Fundamentals
+
+---
+
+## Time Complexity
+
+**Definition**
+
+A description of how the amount of computational work performed by an algorithm grows as its input size increases.
+
+**Purpose**
+
+Allows engineers to reason about the scalability of execution independently of processor speed or measured execution time.
+
+**Systems Context**
+
+Time complexity predicts how computational cost evolves as systems process increasingly larger datasets or workloads.
+
+**Related Concepts**
+
+* Computational Complexity
+* Space Complexity
+* Scalability
+
+**Introduced In**
+
+Module 0.4.1 — Complexity Fundamentals
+
+---
+
+## Space Complexity
+
+**Definition**
+
+A description of how much additional memory an algorithm requires as its input size increases.
+
+**Purpose**
+
+Provides a systematic way to reason about memory consumption and its trade-offs with execution time.
+
+**Systems Context**
+
+Many software systems deliberately consume additional memory through caches, indexes or precomputed data in order to reduce computational work.
+
+**Related Concepts**
+
+* Computational Complexity
+* Time Complexity
+* Trade-off
+
+**Introduced In**
+
+Module 0.4.1 — Complexity Fundamentals
+
+---
+
+## Scalability
+
+**Definition**
+
+The ability of a system or algorithm to continue operating efficiently as workload, data volume or demand increases.
+
+**Purpose**
+
+Shifts engineering decisions from optimizing current performance toward understanding future system behavior.
+
+**Systems Context**
+
+Scalability depends not only on algorithms, but also on data organization, hardware resources, system architecture and workload characteristics.
+
+**Related Concepts**
+
+* Computational Complexity
+* Time Complexity
+* Bottleneck
+* Trade-off
+
+**Introduced In**
+
+Module 0.4.1 — Complexity Fundamentals
+
+---
+
+## Bottleneck
+
+**Definition**
+
+The resource or component whose limited capacity constrains the overall performance of a system.
+
+**Purpose**
+
+Provides a practical way to identify where optimization efforts should be focused.
+
+**Systems Context**
+
+A bottleneck may arise from CPU, memory, storage, network bandwidth or other limited resources. Effective optimization begins by identifying the true bottleneck rather than optimizing components in isolation.
+
+**Related Concepts**
+
+* Scalability
+* Trade-off
+* Time Complexity
+* Space Complexity
+
+**Introduced In**
+
+Module 0.4.1 — Complexity Fundamentals
+
+---
+
+## Trade-off
+
+**Definition**
+
+A design decision in which improving one property of a system requires accepting a cost in another.
+
+**Purpose**
+
+Provides a systematic way to reason about engineering decisions by making competing costs and benefits explicit.
+
+**Systems Context**
+
+Trade-offs appear throughout software systems: time versus memory, read performance versus write performance, simplicity versus scalability, latency versus throughput. Understanding trade-offs is essential for selecting solutions that best fit a system's constraints.
+
+**Related Concepts**
+
+* Computational Complexity
+* Time Complexity
+* Space Complexity
+* Bottleneck
+* Scalability
+
+**Introduced In**
+
+Module 0.4.1 — Complexity Fundamentals

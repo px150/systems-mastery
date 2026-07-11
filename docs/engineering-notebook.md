@@ -166,3 +166,66 @@ Once these questions have clear answers, implementation becomes significantly ea
 * Abstraction
 
 --------------------------------------------------------------------------------------------
+
+## Complexity Is About Resource Growth, Not Speed
+
+**Context**
+
+Module 0.4.1 — Complexity Fundamentals
+
+---
+
+### Observation
+
+Computational complexity is not a measure of how fast software executes.
+
+It is a model describing how the consumption of computational resources evolves as the size of the problem grows.
+
+Time is only one possible resource.
+
+Memory, storage, network bandwidth and energy may become the limiting factors depending on the system.
+
+---
+
+### Reasoning
+
+Absolute execution time depends on hardware, operating systems, compilers, caches and many other implementation details.
+
+These factors change over time.
+
+The growth of computational work, however, is a property of the algorithm itself.
+
+For this reason, engineering decisions should begin by identifying which resource is becoming the bottleneck and how the algorithm scales as the system grows.
+
+Optimizing one resource often increases the consumption of another, making complexity fundamentally a study of engineering trade-offs rather than mathematical notation.
+
+---
+
+### Implications
+
+When evaluating an algorithm or a system, avoid asking only:
+
+* Is it faster?
+
+Instead, ask:
+
+* Which resource is becoming expensive?
+* How does that cost grow as the system grows?
+* Which operation dominates the overall cost?
+* Can the work be reorganized or moved to a different phase?
+* Which new trade-offs would that introduce?
+
+This perspective transforms complexity analysis from an academic exercise into a practical engineering habit that applies throughout software systems.
+
+---
+
+### Related Concepts
+
+* Computational Complexity
+* Time Complexity
+* Space Complexity
+* Scalability
+* Bottleneck
+* Trade-off
+
+--------------------------------------------------------------------------------------------
