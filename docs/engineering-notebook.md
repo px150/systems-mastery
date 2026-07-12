@@ -229,3 +229,68 @@ This perspective transforms complexity analysis from an academic exercise into a
 * Trade-off
 
 --------------------------------------------------------------------------------------------
+
+## Data Structures Emerge from Memory Organization
+
+**Context**
+
+Module 0.4.2 — Arrays & Memory Layout
+
+---
+
+### Observation
+
+The fundamental properties of a data structure often emerge from how data is physically organized in memory rather than from programming language design.
+
+Arrays are the first example of this principle.
+
+Contiguous memory naturally enables constant-time indexing and efficient sequential iteration while making insertions and deletions expensive because physical order must be preserved.
+
+---
+
+### Reasoning
+
+Knowing only the starting address, the size of each element and an index is sufficient to compute the address of any element in a contiguous block.
+
+The physical layout itself encodes positional information, eliminating the need for additional metadata or traversal.
+
+This same design decision also creates unavoidable trade-offs.
+
+Maintaining contiguity requires elements to be shifted during insertions and deletions, while dynamic arrays periodically relocate the entire block to preserve contiguous storage as they grow.
+
+Performance characteristics therefore emerge from memory organization rather than from arbitrary implementation choices.
+
+---
+
+### Implications
+
+When evaluating a data structure, avoid asking only:
+
+* Which operations are fast?
+* What is its Big-O complexity?
+
+Instead, ask:
+
+* How is the data physically organized in memory?
+* Which properties naturally emerge from that organization?
+* Which operations become inexpensive because of the layout?
+* Which operations become expensive for the same reason?
+* Does this organization match the expected workload?
+
+This perspective shifts the focus from memorizing data structures to understanding the engineering decisions that produced them.
+
+---
+
+### Related Concepts
+
+* Contiguous Memory
+* Array
+* Index
+* Offset
+* Random Access
+* Sequential Access
+* Cache Locality
+* Dynamic Array
+* Trade-off
+
+--------------------------------------------------------------------------------------------

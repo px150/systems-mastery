@@ -661,6 +661,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 | 0.2 Thinking in Systems        | ✅ Completed | 2026-07-07 | 2026-07-07 |
 | 0.3 Computational Thinking     | ✅ Completed | 2026-07-07 | 2026-07-07 |
 | 0.4.1 Complexity Fundamentals  | ✅ Completed | 2026-07-10 | 2026-07-11 |
+| 0.4.2 Arrays & Memory Layout   | ✅ Completed | 2026-07-12 | 2026-07-12 |
 
 ---
 

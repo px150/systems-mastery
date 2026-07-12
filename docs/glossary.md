@@ -469,3 +469,187 @@ Trade-offs appear throughout software systems: time versus memory, read performa
 **Introduced In**
 
 Module 0.4.1 — Complexity Fundamentals
+
+---
+
+## Contiguous Memory
+
+**Definition**
+
+A memory layout in which related elements occupy consecutive memory locations without gaps.
+
+**Purpose**
+
+Provides the physical organization that enables direct address computation and efficient sequential access.
+
+**Systems Context**
+
+Contiguous memory is the foundation of arrays and many performance-critical structures such as image buffers, tensors, database pages and network packet buffers.
+
+**Related Concepts**
+
+* Array
+* Offset
+* Random Access
+* Cache Locality
+
+**Introduced In**
+
+Module 0.4.2 — Arrays & Memory Layout
+
+---
+
+## Array
+
+**Definition**
+
+A data structure that stores equally sized elements in contiguous memory, allowing each element's address to be computed directly from its index.
+
+**Purpose**
+
+Provides efficient random access and sequential iteration by exploiting the physical organization of memory.
+
+**Systems Context**
+
+Arrays are one of the fundamental building blocks of modern software systems and appear directly or indirectly in language runtimes, databases, operating systems, graphics, networking and AI runtimes.
+
+**Related Concepts**
+
+* Contiguous Memory
+* Offset
+* Dynamic Array
+* Random Access
+
+**Introduced In**
+
+Module 0.4.2 — Arrays & Memory Layout
+
+---
+
+## Offset
+
+**Definition**
+
+The distance from the beginning of a contiguous memory block to a specific element.
+
+**Purpose**
+
+Allows an element's physical address to be computed from its logical position within an array.
+
+**Systems Context**
+
+Offsets are used throughout software systems whenever data is accessed relative to a known base address, including arrays, files, database pages and memory-mapped structures.
+
+**Related Concepts**
+
+* Array
+* Contiguous Memory
+* Random Access
+
+**Introduced In**
+
+Module 0.4.2 — Arrays & Memory Layout
+
+---
+
+## Random Access
+
+**Definition**
+
+The ability to access any element directly without traversing the preceding elements.
+
+**Purpose**
+
+Provides predictable access time independent of an element's position within a collection.
+
+**Systems Context**
+
+Random access naturally emerges from contiguous memory and fixed-size elements, making arrays well suited for workloads dominated by reads.
+
+**Related Concepts**
+
+* Array
+* Contiguous Memory
+* Sequential Access
+
+**Introduced In**
+
+Module 0.4.2 — Arrays & Memory Layout
+
+---
+
+## Sequential Access
+
+**Definition**
+
+Accessing elements one after another according to their logical order.
+
+**Purpose**
+
+Enables efficient processing of large collections by following a predictable access pattern.
+
+**Systems Context**
+
+Sequential access benefits greatly from contiguous memory because adjacent elements are stored physically close together, improving overall throughput.
+
+**Related Concepts**
+
+* Array
+* Contiguous Memory
+* Cache Locality
+
+**Introduced In**
+
+Module 0.4.2 — Arrays & Memory Layout
+
+---
+
+## Cache Locality
+
+**Definition**
+
+The property of accessing memory in predictable patterns so that nearby data is likely to be available when needed.
+
+**Purpose**
+
+Explains why contiguous memory often improves real-world performance during sequential processing.
+
+**Systems Context**
+
+Cache locality plays a fundamental role in high-performance software, including databases, graphics, scientific computing and AI runtime engineering.
+
+**Related Concepts**
+
+* Contiguous Memory
+* Sequential Access
+* Array
+
+**Introduced In**
+
+Module 0.4.2 — Arrays & Memory Layout
+
+---
+
+## Dynamic Array
+
+**Definition**
+
+An array implementation that automatically allocates a larger contiguous memory block when additional capacity is required.
+
+**Purpose**
+
+Provides the convenience of automatic growth while preserving the benefits of contiguous storage.
+
+**Systems Context**
+
+Dynamic arrays periodically relocate their elements into larger contiguous blocks, trading occasional expensive reallocations for efficient everyday operations.
+
+**Related Concepts**
+
+* Array
+* Contiguous Memory
+* Trade-off
+
+**Introduced In**
+
+Module 0.4.2 — Arrays & Memory Layout
