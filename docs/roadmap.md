@@ -38,34 +38,76 @@ Progress is determined by demonstrated understanding rather than by content cons
 
 ---
 
-# Repository Structure
-
-The repository represents a miniature software systems stack rather than a collection of unrelated examples.
+## Repository Structure
 
 ```text
 systems-mastery/
-├── architecture/
-├── operating-system/
-├── concurrency/
-├── networking/
-├── backend/
-├── storage/
-├── distributed/
-├── observability/
-├── infrastructure/
-├── security/
-├── benchmarks/
-├── experiments/
-└── notebook/
+├── docs/
+│   ├── modules/
+│   │   ├── 0/
+│   │   │   ├── 0.1-software-systems-map.md
+│   │   │   ├── 0.2-thinking-in-systems.md
+│   │   │   ├── 0.3-computational-thinking.md
+│   │   │   └── 0.4/
+│   │   │       ├── 0.4.1-complexity-fundamentals.md
+│   │   │       ├── 0.4.2-arrays-and-memory-layout.md
+│   │   │       └── ...
+│   │   └── ...
+│   ├── engineering-notebook.md
+│   ├── glossary.md
+│   ├── manifesto.md
+│   ├── mastery.md
+│   └── roadmap.md
+├── src/
+│   └── modules/
+│       ├── fundamental-algorithms-and-data-structures/
+│       │   ├── arrays/
+│       │   │   ├── address.py
+│       │   │   ├── delete.py
+│       │   │   ├── dynamic_array.py
+│       │   │   ├── fixed_array.py
+│       │   │   ├── insert.py
+│       │   │   └── tests/
+│       │   │       ├── test_address.py
+│       │   │       ├── test_delete.py
+│       │   │       ├── test_dynamic_array.py
+│       │   │       ├── test_fixed_array.py
+│       │   │       └── test_insert.py
+│       │   └── ...
+│       ├── computer-architecture/
+│       ├── cpp-for-systems/
+│       ├── operating-systems/
+│       ├── concurrency/
+│       ├── networking/
+│       ├── backend-systems/
+│       ├── data-storage/
+│       ├── distributed-systems/
+│       ├── observability/
+│       ├── infrastructure/
+│       ├── reliability/
+│       └── security/
+├── LICENSE
+└── README.md
 ```
 
-Each component should remain independently understandable while integrating naturally into the overall software systems stack.
+The repository separates curriculum documentation from executable learning artifacts.
+
+The `docs/modules/` directory contains the publication-quality chapters produced after each module has been studied and assessed.
+
+The `src/modules/` directory contains the implementations, experiments, tests, and supporting code developed throughout the curriculum.
+
+Its structure follows the roadmap rather than a fixed technology stack. Directories are introduced progressively as new areas of the curriculum begin, and individual modules may contain their own implementations, tests, benchmarks, or experiments.
+
+Each part of the repository should remain independently understandable while contributing to the broader software systems journey.
+
 
 ---
 
 # Language Roles
 
 ## C++
+
+Introduced after Computer Architecture as the primary implementation language for systems programming.
 
 Primary language for:
 
@@ -74,32 +116,29 @@ Primary language for:
 * infrastructure components;
 * concurrency;
 * production-oriented implementations;
-* performance-sensitive engineering.
+* performance-sensitive engineering;
+* reading and understanding production code.
 
-Most repository components are progressively implemented in C++.
-
-C++ is also used for:
-
-* reading production implementations;
-* understanding architecture;
-* studying optimization techniques;
-* exploring mature software systems.
-
-The objective is both implementation and understanding—not rewriting the entire ecosystem.
+The objective is to understand modern software systems through a language that exposes low-level concepts such as memory layout, ownership, resource management, and performance.
 
 ---
 
 ## Python
 
-Primary language for:
+Primary language during the foundational phases of the curriculum.
 
+Used for:
+
+* algorithms and data structures;
 * experiments;
 * automation;
 * tooling;
 * benchmarking;
 * supporting utilities.
 
-Python minimizes friction whenever implementation performance is not the learning objective.
+Python minimizes unnecessary language complexity while foundational engineering concepts are being developed.
+
+As Systems Mastery progresses, implementation gradually transitions toward C++ whenever low-level control becomes an essential part of the learning objective.
 
 ---
 
@@ -230,7 +269,32 @@ Repository components:
 
 ---
 
-# Phase 2 — Operating System Fundamentals
+# Phase 2 — C++ for Systems
+
+## Objective
+
+Introduce the subset of modern C++ required throughout the remainder of Systems Mastery.
+
+Rather than teaching C++ comprehensively, this phase introduces the language as a practical systems programming tool whose abstractions closely reflect the underlying hardware and operating system.
+
+The objective is not language mastery, but engineering fluency.
+
+### Modules
+
+* 2.1 The C++ Compilation Model
+* 2.2 References and Pointers
+* 2.3 Stack and Heap Allocation
+* 2.4 RAII and Resource Ownership
+* 2.5 Move Semantics
+* 2.6 Essential Standard Library
+
+Repository components:
+
+* experiments
+
+---
+
+# Phase 3 — Operating System Fundamentals
 
 ## Objective
 
@@ -238,11 +302,11 @@ Understand how operating systems manage hardware resources and expose abstractio
 
 ### Modules
 
-* 2.1 Processes
-* 2.2 Threads
-* 2.3 Virtual Memory
-* 2.4 File Systems
-* 2.5 System Calls
+* 3.1 Processes
+* 3.2 Threads
+* 3.3 Virtual Memory
+* 3.4 File Systems
+* 3.5 System Calls
 
 Repository components:
 
@@ -276,7 +340,7 @@ A complete mental model of software execution from hardware to user-space applic
 
 ---
 
-# Phase 3 — Concurrency
+# Phase 4 — Concurrency
 
 ## Objective
 
@@ -284,11 +348,11 @@ Understand how modern software executes multiple tasks safely and efficiently.
 
 ### Modules
 
-* 3.1 Synchronization
-* 3.2 Mutexes
-* 3.3 Condition Variables
-* 3.4 Thread Pools
-* 3.5 Lock-Free Fundamentals
+* 4.1 Synchronization
+* 4.2 Mutexes
+* 4.3 Condition Variables
+* 4.4 Thread Pools
+* 4.5 Lock-Free Fundamentals
 
 Repository components:
 
@@ -296,7 +360,7 @@ Repository components:
 
 ---
 
-# Phase 4 — Networking
+# Phase 5 — Networking
 
 ## Objective
 
@@ -304,12 +368,12 @@ Understand how software systems communicate across machines and exchange data re
 
 ### Modules
 
-* 4.1 Network Fundamentals
-* 4.2 The TCP/IP Stack
-* 4.3 Sockets
-* 4.4 HTTP Fundamentals
-* 4.5 HTTP Servers and Clients
-* 4.6 RPC and gRPC
+* 5.1 Network Fundamentals
+* 5.2 The TCP/IP Stack
+* 5.3 Sockets
+* 5.4 HTTP Fundamentals
+* 5.5 HTTP Servers and Clients
+* 5.6 RPC and gRPC
 
 Repository components:
 
@@ -317,7 +381,7 @@ Repository components:
 
 ---
 
-# Phase 5 — Backend Systems
+# Phase 6 — Backend Systems
 
 ## Objective
 
@@ -325,12 +389,12 @@ Understand how modern backend services are structured and how requests flow thro
 
 ### Modules
 
-* 5.1 Minimal HTTP Server
-* 5.2 Routing
-* 5.3 Middleware
-* 5.4 Request Lifecycle
-* 5.5 Authentication Fundamentals
-* 5.6 Configuration and Dependency Injection
+* 6.1 Minimal HTTP Server
+* 6.2 Routing
+* 6.3 Middleware
+* 6.4 Request Lifecycle
+* 6.5 Authentication Fundamentals
+* 6.6 Configuration and Dependency Injection
 
 Repository components:
 
@@ -364,7 +428,7 @@ A production-style HTTP service implemented entirely from first principles.
 
 ---
 
-# Phase 6 — Data Storage
+# Phase 7 — Data Storage
 
 ## Objective
 
@@ -372,12 +436,12 @@ Understand how modern software systems store, retrieve, and organize data effici
 
 ### Modules
 
-* 6.1 Storage Fundamentals
-* 6.2 B-Trees and Indexes
-* 6.3 Transactions
-* 6.4 Query Processing
-* 6.5 Caching
-* 6.6 Key-Value Storage
+* 7.1 Storage Fundamentals
+* 7.2 B-Trees and Indexes
+* 7.3 Transactions
+* 7.4 Query Processing
+* 7.5 Caching
+* 7.6 Key-Value Storage
 
 Repository components:
 
@@ -385,7 +449,7 @@ Repository components:
 
 ---
 
-# Phase 7 — Distributed Systems
+# Phase 8 — Distributed Systems
 
 ## Objective
 
@@ -393,13 +457,13 @@ Understand how software systems scale beyond a single machine while remaining re
 
 ### Modules
 
-* 7.1 Distributed Systems Fundamentals
-* 7.2 Remote Communication
-* 7.3 Replication
-* 7.4 Consistency Models
-* 7.5 Consensus
-* 7.6 Message Queues
-* 7.7 Event-Driven Architectures
+* 8.1 Distributed Systems Fundamentals
+* 8.2 Remote Communication
+* 8.3 Replication
+* 8.4 Consistency Models
+* 8.5 Consensus
+* 8.6 Message Queues
+* 8.7 Event-Driven Architectures
 
 Repository components:
 
@@ -434,7 +498,7 @@ A minimal distributed application integrating networking, storage, and inter-ser
 
 ---
 
-# Phase 8 — Observability
+# Phase 9 — Observability
 
 ## Objective
 
@@ -442,12 +506,12 @@ Understand how production systems are monitored, measured, debugged, and analyze
 
 ### Modules
 
-* 8.1 Logging Fundamentals
-* 8.2 Metrics
-* 8.3 Distributed Tracing
-* 8.4 Profiling
-* 8.5 Debugging Production Systems
-* 8.6 Observability Pipelines
+* 9.1 Logging Fundamentals
+* 9.2 Metrics
+* 9.3 Distributed Tracing
+* 9.4 Profiling
+* 9.5 Debugging Production Systems
+* 9.6 Observability Pipelines
 
 Repository components:
 
@@ -456,7 +520,7 @@ Repository components:
 
 ---
 
-# Phase 9 — Infrastructure
+# Phase 10 — Infrastructure
 
 ## Objective
 
@@ -464,12 +528,12 @@ Understand how modern software systems are packaged, deployed, and executed reli
 
 ### Modules
 
-* 9.1 Virtualization and Containers
-* 9.2 Docker Fundamentals
-* 9.3 Container Networking
-* 9.4 Orchestration Fundamentals
-* 9.5 Kubernetes Architecture
-* 9.6 Service Discovery
+* 10.1 Virtualization and Containers
+* 10.2 Docker Fundamentals
+* 10.3 Container Networking
+* 10.4 Orchestration Fundamentals
+* 10.5 Kubernetes Architecture
+* 10.6 Service Discovery
 
 Repository components:
 
@@ -505,7 +569,7 @@ A production-ready service that can be deployed, monitored, and analyzed.
 
 ---
 
-# Phase 10 — Reliability Engineering
+# Phase 11 — Reliability Engineering
 
 ## Objective
 
@@ -513,13 +577,13 @@ Understand how production systems remain available, scalable, resilient, and mai
 
 ### Modules
 
-* 10.1 Reliability Fundamentals
-* 10.2 Fault Tolerance
-* 10.3 Load Balancing
-* 10.4 Rate Limiting
-* 10.5 Circuit Breakers
-* 10.6 Retries and Backoff
-* 10.7 Graceful Shutdown
+* 11.1 Reliability Fundamentals
+* 11.2 Fault Tolerance
+* 11.3 Load Balancing
+* 11.4 Rate Limiting
+* 11.5 Circuit Breakers
+* 11.6 Retries and Backoff
+* 11.7 Graceful Shutdown
 
 Repository components:
 
@@ -528,7 +592,7 @@ Repository components:
 
 ---
 
-# Phase 11 — Security
+# Phase 12 — Security
 
 ## Objective
 
@@ -536,13 +600,13 @@ Understand how modern software systems protect data, services, and infrastructur
 
 ### Modules
 
-* 11.1 Authentication
-* 11.2 Authorization
-* 11.3 Cryptography Fundamentals
-* 11.4 TLS
-* 11.5 Secrets Management
-* 11.6 Common Vulnerabilities
-* 11.7 Secure Software Engineering
+* 12.1 Authentication
+* 12.2 Authorization
+* 12.3 Cryptography Fundamentals
+* 12.4 TLS
+* 12.5 Secrets Management
+* 12.6 Common Vulnerabilities
+* 12.7 Secure Software Engineering
 
 Repository components:
 
@@ -577,7 +641,7 @@ A complete production-oriented software system built upon strong engineering fou
 
 ---
 
-# Phase 12 — Systems Engineering Capstone
+# Phase 13 — Systems Engineering Capstone
 
 ## Objective
 
@@ -652,6 +716,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 | Phase 10  | ⚪ Not Started |            |           |              |
 | Phase 11  | ⚪ Not Started |            |           |              |
 | Phase 12  | ⚪ Not Started |            |           |              |
+| Phase 13  | ⚪ Not Started |            |           |              |
 
 ---
 
