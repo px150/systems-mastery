@@ -294,3 +294,68 @@ This perspective shifts the focus from memorizing data structures to understandi
 * Trade-off
 
 --------------------------------------------------------------------------------------------
+
+## Structure Can Be Stored in Relationships Instead of Memory
+
+**Context**
+
+Module 0.4.3 — Linked Structures
+
+---
+
+### Observation
+
+Arrays encode logical order through contiguous memory.
+
+Linked structures abandon this assumption.
+
+Instead of deriving relationships from physical adjacency, they represent relationships explicitly.
+
+The organization of the structure therefore becomes independent of the physical organization of memory.
+
+---
+
+### Reasoning
+
+Once logical order is separated from physical location, modifying the structure no longer requires relocating existing elements.
+
+Insertions and deletions become operations that rewire relationships rather than reorganize memory.
+
+The trade-off is that direct address calculation disappears.
+
+Elements must instead be discovered by traversing the explicit relationships connecting them.
+
+This demonstrates a broader engineering principle:
+
+Software abstractions often emerge not from storing more data, but from storing different relationships.
+
+---
+
+### Implications
+
+When encountering a new data structure, avoid asking only:
+
+* How are the elements stored?
+
+Instead, ask:
+
+* Where is the structure actually represented?
+* Is logical organization encoded by memory layout or by explicit relationships?
+* Which operations become inexpensive because of this representation?
+* Which new costs emerge after changing it?
+* Which workloads justify these trade-offs?
+
+Thinking this way naturally extends beyond linked structures to trees, graphs, memory allocators, storage engines and many other systems.
+
+---
+
+### Related Concepts
+
+* Linked Structure
+* Node
+* Relationship
+* Traversal
+* Memory Locality
+* Trade-off
+
+--------------------------------------------------------------------------------------------

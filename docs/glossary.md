@@ -653,3 +653,137 @@ Dynamic arrays periodically relocate their elements into larger contiguous block
 **Introduced In**
 
 Module 0.4.2 — Arrays & Memory Layout
+
+---
+
+## Linked Structure
+
+**Definition**
+
+A data structure whose logical organization is represented through explicit relationships between memory objects rather than through contiguous physical storage.
+
+**Purpose**
+
+Provides a general abstraction for reasoning about data structures that abandon contiguous memory in exchange for greater structural flexibility.
+
+**Systems Context**
+
+Linked structures form the conceptual foundation of linked lists, trees, graphs, free lists, LRU caches and many other systems in which relationships define organization.
+
+**Related Concepts**
+
+* Node
+* Traversal
+* Contiguous Memory
+* Trade-off
+
+**Introduced In**
+
+Module 0.4.3 — Linked Structures
+
+---
+
+## Node
+
+**Definition**
+
+An individual object within a linked structure that stores both application data and one or more relationships to other nodes.
+
+**Purpose**
+
+Serves as the fundamental building block from which linked structures are constructed.
+
+**Systems Context**
+
+Unlike array elements, nodes explicitly describe how they connect to the rest of the structure. The collection of these relationships defines the overall organization.
+
+**Related Concepts**
+
+* Linked Structure
+* Traversal
+* Relationship
+
+**Introduced In**
+
+Module 0.4.3 — Linked Structures
+
+---
+
+## Relationship
+
+**Definition**
+
+An explicit connection between two objects that describes how they are logically associated within a structure.
+
+**Purpose**
+
+Separates logical organization from physical memory layout, allowing structures to exist independently of object locations.
+
+**Systems Context**
+
+Relationships define the organization of linked structures, trees and graphs, replacing the role played by contiguous memory in arrays.
+
+**Related Concepts**
+
+* Node
+* Linked Structure
+* Traversal
+* Contiguous Memory
+
+**Introduced In**
+
+Module 0.4.3 — Linked Structures
+
+---
+
+## Traversal
+
+**Definition**
+
+The process of reaching elements by following explicit relationships from one object to another.
+
+**Purpose**
+
+Provides the fundamental access mechanism for structures in which direct address calculation is not possible.
+
+**Systems Context**
+
+Traversal replaces random access in linked structures and naturally extends to trees, graphs and many other connected systems.
+
+**Related Concepts**
+
+* Linked Structure
+* Node
+* Random Access
+* Sequential Access
+
+**Introduced In**
+
+Module 0.4.3 — Linked Structures
+
+---
+
+## Memory Locality
+
+**Definition**
+
+The degree to which related memory accesses occur close to one another in physical memory.
+
+**Purpose**
+
+Explains why two algorithms with identical asymptotic complexity may exhibit significantly different real-world performance.
+
+**Systems Context**
+
+Contiguous arrays generally provide high memory locality, while linked structures often sacrifice locality in exchange for inexpensive structural modifications.
+
+**Related Concepts**
+
+* Cache Locality
+* Contiguous Memory
+* Linked Structure
+* Trade-off
+
+**Introduced In**
+
+Module 0.4.3 — Linked Structures
