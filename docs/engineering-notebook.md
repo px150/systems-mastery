@@ -359,3 +359,73 @@ Thinking this way naturally extends beyond linked structures to trees, graphs, m
 * Trade-off
 
 --------------------------------------------------------------------------------------------
+
+## Behavior Can Emerge from Access Policies
+
+**Context**
+
+Module 0.4.4 — Stacks & Queues
+
+---
+
+### Observation
+
+The behavior of a collection is not determined solely by how its elements are organized in memory.
+
+It may also emerge from deliberately restricting how the collection can be accessed.
+
+Stacks and queues illustrate this principle.
+
+They introduce no new memory organization.
+
+Instead, they impose access policies upon existing collections.
+
+---
+
+### Reasoning
+
+Arrays and linked structures determine how data is physically organized.
+
+Stacks and queues determine which operations are permitted.
+
+A stack assigns both insertion and removal to the same end of the collection, naturally producing LIFO behavior.
+
+A queue assigns insertion and removal to opposite ends, naturally producing FIFO behavior.
+
+The observable behavior therefore emerges from the interface rather than from the underlying storage.
+
+This separation between memory organization and access policy allows the same abstraction to be implemented using different underlying data structures while preserving identical behavior.
+
+---
+
+### Implications
+
+When encountering a new abstraction, avoid asking only:
+
+* How is the data stored?
+
+Instead, ask:
+
+* Which operations are intentionally permitted?
+* Which operations are intentionally forbidden?
+* Does the abstraction define a memory organization or an access policy?
+* Which invariants does the interface preserve?
+* Could the same behavior be implemented using a different underlying collection?
+
+This perspective extends naturally to schedulers, operating systems, networking, databases and AI runtimes, where many abstractions exist primarily to constrain behavior rather than to organize memory.
+
+---
+
+### Related Concepts
+
+* Access Policy
+* Abstraction
+* Stack
+* Queue
+* LIFO
+* FIFO
+* Information Hiding
+* Invariant
+* Interface
+
+--------------------------------------------------------------------------------------------

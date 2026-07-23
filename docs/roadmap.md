@@ -728,6 +728,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 | 0.4.1 Complexity Fundamentals  | ✅ Completed | 2026-07-10 | 2026-07-11 |
 | 0.4.2 Arrays & Memory Layout   | ✅ Completed | 2026-07-12 | 2026-07-12 |
 | 0.4.3 Linked Structures        | ✅ Completed | 2026-07-12 | 2026-07-15 |
+| 0.4.4 Stack & Queue            | ✅ Completed | 2026-07-21 | 2026-07-23 |
 
 ---
 

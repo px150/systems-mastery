@@ -787,3 +787,115 @@ Contiguous arrays generally provide high memory locality, while linked structure
 **Introduced In**
 
 Module 0.4.3 — Linked Structures
+
+---
+
+## Access Policy
+
+**Definition**
+
+A rule that constrains which operations may be performed on a collection and where those operations may occur.
+
+**Purpose**
+
+Allows system behavior and invariants to be enforced through an interface rather than through programmer discipline.
+
+**Systems Context**
+
+Access policies appear whenever a system intentionally restricts how data, work or resources may be observed, inserted, selected or removed. Stacks and queues are fundamental examples.
+
+**Related Concepts**
+
+* Interface
+* Invariant
+* Stack
+* Queue
+* Information Hiding
+
+**Introduced In**
+
+Module 0.4.4 — Stacks & Queues
+
+---
+
+## Stack
+
+**Definition**
+
+An access abstraction that permits insertion and removal at the same end of an underlying collection, producing Last-In, First-Out behavior.
+
+**Purpose**
+
+Models problems in which the most recently added element must be processed or removed first.
+
+**Systems Context**
+
+Stacks appear in nested execution, function calls, recursive algorithms, undo systems and navigation histories. Their behavior is determined by their access policy rather than by a specific memory organization.
+
+**Related Concepts**
+
+* Access Policy
+* Queue
+* Dynamic Array
+* Linked Structure
+* Information Hiding
+
+**Introduced In**
+
+Module 0.4.4 — Stacks & Queues
+
+---
+
+## Queue
+
+**Definition**
+
+An access abstraction that permits insertion at one end of an underlying collection and removal from the opposite end, producing First-In, First-Out behavior.
+
+**Purpose**
+
+Models problems in which elements or work must be processed according to their order of arrival.
+
+**Systems Context**
+
+Queues appear in schedulers, print servers, message brokers, network processing and graph traversal. Their public behavior can remain unchanged even when the underlying memory organization is replaced.
+
+**Related Concepts**
+
+* Access Policy
+* Stack
+* Dynamic Array
+* Linked Structure
+* Information Hiding
+
+**Introduced In**
+
+Module 0.4.4 — Stacks & Queues
+
+---
+
+## Information Hiding
+
+**Definition**
+
+The practice of exposing only the operations required by an abstraction while concealing its internal representation and implementation details.
+
+**Purpose**
+
+Protects invariants, reduces coupling and allows implementations to change without affecting callers.
+
+**Systems Context**
+
+A stack or queue hides the unrestricted operations of its underlying collection so that callers cannot bypass its access policy. The same principle applies throughout software systems to storage, networking, scheduling and resource management abstractions.
+
+**Related Concepts**
+
+* Interface
+* Boundary
+* Invariant
+* Access Policy
+* Abstraction
+
+**Introduced In**
+
+Module 0.4.4 — Stacks & Queues
