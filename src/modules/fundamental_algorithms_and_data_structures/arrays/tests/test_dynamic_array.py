@@ -213,3 +213,33 @@ def test_pop_back_on_empty_array_raises_error() -> None:
 
     with pytest.raises(IndexError, match="Array is empty."):
         array.pop_back()
+
+
+def test_pop_front_returns_first_element() -> None:
+    array = DynamicArray(
+        array=FixedArray(
+            capacity=4,
+            element_size=4,
+        )
+    )
+
+    array.push_back(10)
+    array.push_back(20)
+    array.push_back(30)
+
+    assert array.pop_front() == 10
+    assert array.get_size() == 2
+    assert array.get_item(0) == 20
+    assert array.get_item(1) == 30
+
+
+def test_pop_front_on_empty_array_raises_error() -> None:
+    array = DynamicArray(
+        array=FixedArray(
+            capacity=2,
+            element_size=4,
+        )
+    )
+
+    with pytest.raises(IndexError, match="Array is empty."):
+        array.pop_front()

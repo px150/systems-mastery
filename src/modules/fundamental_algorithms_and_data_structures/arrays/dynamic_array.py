@@ -59,3 +59,29 @@ class DynamicArray:
         self.array.memory[last_index] = None
         self.array.size -= 1
         return last_item
+
+    def pop_front(self) -> int:
+        """
+        Remove and return the first element of the dynamic array.
+
+        Removing the first element requires shifting all remaining
+        elements one position toward the beginning of the array in
+        order to preserve contiguous memory.
+
+        This illustrates why removing from the front of a contiguous
+        array is an O(n) operation.
+
+        Raises:
+            IndexError: If the array is empty.
+        """
+        if self.array.size == 0:
+            raise IndexError("Array is empty.")
+        first_item = self.array.memory[0]
+        for i in range(self.array.size):
+            is_last_index = i == self.array.size - 1
+            if is_last_index:
+                self.array.memory[i] = None
+                break
+            self.array.memory[i] = self.array.memory[i + 1]
+        self.array.size -= 1
+        return first_item
