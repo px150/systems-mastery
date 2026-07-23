@@ -33,3 +33,29 @@ class DynamicArray:
             self.copied_elements += 1
         self.array.size = old_array.size
         self.reallocation_count += 1
+
+    def get_size(self) -> int:
+        return self.array.size
+
+    def get_item(self, index: int) -> int:
+        if index < 0 or index >= self.array.size:
+            raise IndexError("Index out of bounds.")
+        return self.array.memory[index]
+
+    def pop_back(self) -> int:
+        """
+        Remove and return the last element of the dynamic array.
+
+        Removing the final element preserves the contiguous memory layout
+        without shifting any remaining elements, making this an O(1) operation.
+
+        Raises:
+            IndexError: If the array is empty.
+        """
+        if self.array.size == 0:
+            raise IndexError("Array is empty.")
+        last_index = self.array.size - 1
+        last_item = self.array.memory[last_index]
+        self.array.memory[last_index] = None
+        self.array.size -= 1
+        return last_item
