@@ -56,3 +56,19 @@ def test_add_child_rejects_cycle() -> None:
 
     with pytest.raises(ValueError, match="Cycle detected."):
         add_child(grandchild, root)
+
+
+def test_new_node_is_leaf() -> None:
+    node = TreeNode(value=1)
+
+    assert node.is_leaf()
+
+
+def test_node_with_child_is_not_leaf() -> None:
+    parent = TreeNode(value=1)
+    child = TreeNode(value=2)
+
+    add_child(parent, child)
+
+    assert not parent.is_leaf()
+    assert child.is_leaf()
