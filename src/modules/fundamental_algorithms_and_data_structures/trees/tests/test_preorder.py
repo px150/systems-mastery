@@ -1,4 +1,5 @@
 from trees.preorder import preorder
+from trees.preorder_iterative import preorder_iterative
 from trees.tree_node import TreeNode
 from trees.add_child import add_child
 
@@ -6,11 +7,13 @@ from trees.add_child import add_child
 def test_preorder_empty_tree():
     root = None
     assert preorder(root) == []
+    assert preorder(root) == preorder_iterative(root)
 
 
 def test_preorder_single_node_tree():
     root = TreeNode(value=1)
     assert preorder(root) == [1]
+    assert preorder(root) == preorder_iterative(root)
 
 
 def test_preorder_tree_with_children():
@@ -26,3 +29,4 @@ def test_preorder_tree_with_children():
     add_child(child1, child4)
 
     assert preorder(root) == [1, 2, 4, 5, 3]
+    assert preorder(root) == preorder_iterative(root)
