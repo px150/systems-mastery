@@ -899,3 +899,141 @@ A stack or queue hides the unrestricted operations of its underlying collection 
 **Introduced In**
 
 Module 0.4.4 — Stacks & Queues
+
+---
+
+## Tree
+
+**Definition**
+
+A hierarchical linked structure in which a unique root owns every reachable node through parent-child relationships that preserve specific structural invariants.
+
+**Purpose**
+
+Provides the fundamental abstraction for representing unambiguous hierarchical organization independently of any particular memory representation.
+
+**Systems Context**
+
+Trees appear throughout software systems wherever ownership or containment naturally forms a hierarchy, including file systems, DOM trees, compiler syntax trees and database indexes.
+
+**Related Concepts**
+
+* Hierarchy
+* Root
+* Parent
+* Child
+* Graph
+* Structural Invariant
+
+**Introduced In**
+
+Module 0.4.5 — Trees
+
+---
+
+## Hierarchy
+
+**Definition**
+
+An organization in which each element belongs to a single parent, ultimately forming a unique ownership chain from a root to every reachable node.
+
+**Purpose**
+
+Provides a systematic way to model containment, ownership and recursive decomposition.
+
+**Systems Context**
+
+Hierarchies naturally appear in file systems, UI component trees, compiler syntax trees, process trees and many other software systems.
+
+**Related Concepts**
+
+* Tree
+* Root
+* Parent
+* Child
+* Ownership
+
+**Introduced In**
+
+Module 0.4.5 — Trees
+
+---
+
+## Root
+
+**Definition**
+
+The unique node that owns an entire tree and has no parent.
+
+**Purpose**
+
+Provides the single entry point from which every node belonging to the hierarchy is reachable.
+
+**Systems Context**
+
+Owning the root means owning the entire hierarchy. Many production systems explicitly expose the root as the entry point to a tree.
+
+**Related Concepts**
+
+* Tree
+* Parent
+* Child
+* Reachability
+
+**Introduced In**
+
+Module 0.4.5 — Trees
+
+---
+
+## Reachability
+
+**Definition**
+
+The property of being accessible by following explicit relationships from a designated starting node.
+
+**Purpose**
+
+Determines structural membership independently of whether an object merely exists in memory.
+
+**Systems Context**
+
+In trees, a node belongs to the hierarchy only if it is reachable from the root. Reachability remains a fundamental concept throughout graphs, operating systems, networking and many other software systems.
+
+**Related Concepts**
+
+* Tree
+* Root
+* Traversal
+* Relationship
+
+**Introduced In**
+
+Module 0.4.5 — Trees
+
+---
+
+## Graph
+
+**Definition**
+
+A linked structure that allows arbitrary relationships between nodes without the hierarchical constraints imposed by trees.
+
+**Purpose**
+
+Provides a general abstraction for modeling relationship networks in which multiple parents, cycles or multiple paths may naturally exist.
+
+**Systems Context**
+
+Many systems that appear tree-like—including package dependencies and Git commit history—are more accurately modeled as graphs.
+
+**Related Concepts**
+
+* Tree
+* Node
+* Relationship
+* Traversal
+
+**Introduced In**
+
+Module 0.4.5 — Trees
