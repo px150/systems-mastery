@@ -730,6 +730,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 | 0.4.3 Linked Structures        | ✅ Completed | 2026-07-12 | 2026-07-15 |
 | 0.4.4 Stack & Queue            | ✅ Completed | 2026-07-21 | 2026-07-23 |
 | 0.4.5 Trees                    | ✅ Completed | 2026-07-23 | 2026-07-25 |
+| 0.4.6 Tree Traversal           | ✅ Completed | 2026-07-25 | 2026-07-27 |
 
 ---
 

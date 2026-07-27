@@ -500,3 +500,85 @@ Thinking this way naturally extends to file systems, DOM trees, compiler ASTs, s
 * Graph
 
 --------------------------------------------------------------------------------------------
+
+## Traversal Gives Hierarchy Operational Meaning
+
+**Context**
+
+Module 0.4.6 — Tree Traversal
+
+---
+
+### Observation
+
+A tree defines hierarchical relationships, but it does not define how those relationships should be explored.
+
+Traversal is a separate algorithmic concern.
+
+Different traversal strategies process the same hierarchy in different orders, making different information available at different moments.
+
+---
+
+### Reasoning
+
+Hierarchy describes structure.
+
+Traversal describes exploration.
+
+The choice of traversal is therefore determined not by the tree itself, but by the engineering problem being solved.
+
+Depth-First Search naturally completes one subtree before exploring another, while Breadth-First Search expands the hierarchy level by level.
+
+The moment at which a node is processed is equally important.
+
+Preorder processes parents before descendants.
+
+Postorder processes descendants before parents.
+
+Traversal state must always be remembered during exploration.
+
+Recursive DFS delegates this responsibility to the language call stack.
+
+Iterative DFS maintains it explicitly using a stack.
+
+Breadth-First Search maintains it using a queue.
+
+This demonstrates a broader engineering principle:
+
+Software structures define relationships, while algorithms define how information flows through those relationships.
+
+---
+
+### Implications
+
+When encountering a hierarchical system, avoid asking only:
+
+* Which traversal algorithm is used?
+
+Instead, ask:
+
+* Which exploration strategy does the problem require?
+* When should each node be processed?
+* Which information depends upon descendants?
+* Which traversal state must be remembered?
+* Should that state be maintained implicitly or explicitly?
+* Does the chosen traversal match the workload?
+
+Thinking this way naturally extends to graph traversal, compiler pipelines, rendering engines, storage systems, dependency resolution and AI runtime execution.
+
+---
+
+### Related Concepts
+
+* Traversal
+* Exploration Strategy
+* DFS
+* BFS
+* Preorder
+* Postorder
+* Traversal State
+* Call Stack
+* Stack
+* Queue
+
+--------------------------------------------------------------------------------------------

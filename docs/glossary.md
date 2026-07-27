@@ -1037,3 +1037,167 @@ Many systems that appear tree-like—including package dependencies and Git comm
 **Introduced In**
 
 Module 0.4.5 — Trees
+
+---
+
+## Exploration Strategy
+
+**Definition**
+
+The algorithmic policy that determines the order in which reachable nodes are explored within a connected structure.
+
+**Purpose**
+
+Separates the organization of a structure from the process used to navigate it.
+
+**Systems Context**
+
+Different exploration strategies applied to the same hierarchy expose different information at different moments, making them suitable for different engineering problems.
+
+**Related Concepts**
+
+* Traversal
+* DFS
+* BFS
+* Tree
+
+**Introduced In**
+
+Module 0.4.6 — Tree Traversal
+
+---
+
+## Depth-First Search (DFS)
+
+**Definition**
+
+A traversal strategy that completely explores one branch of a hierarchy before returning to unfinished sibling branches.
+
+**Purpose**
+
+Efficiently solves problems in which work naturally completes one subtree before another.
+
+**Systems Context**
+
+DFS naturally appears in recursive directory processing, compiler syntax trees, expression evaluation and many hierarchical algorithms. Traversal state may be maintained either implicitly through the call stack or explicitly using a stack.
+
+**Related Concepts**
+
+* Traversal
+* Breadth-First Search (BFS)
+* Stack
+* Call Stack
+* Preorder
+* Postorder
+
+**Introduced In**
+
+Module 0.4.6 — Tree Traversal
+
+---
+
+## Breadth-First Search (BFS)
+
+**Definition**
+
+A traversal strategy that explores a hierarchy level by level, visiting every node at one depth before proceeding deeper.
+
+**Purpose**
+
+Efficiently solves problems where information closest to the root should be discovered first.
+
+**Systems Context**
+
+BFS naturally appears in shortest-path discovery within unweighted hierarchies, level-order processing and progressive exploration. Traversal state is maintained explicitly using a queue.
+
+**Related Concepts**
+
+* Traversal
+* Depth-First Search (DFS)
+* Queue
+* Exploration Strategy
+
+**Introduced In**
+
+Module 0.4.6 — Tree Traversal
+
+---
+
+## Preorder
+
+**Definition**
+
+A depth-first traversal order in which a node is processed before recursively exploring its descendants.
+
+**Purpose**
+
+Supports problems where parent information must become available before processing child nodes.
+
+**Systems Context**
+
+Preorder commonly appears in hierarchy visualization, serialization and recursive rendering of tree structures.
+
+**Related Concepts**
+
+* Depth-First Search (DFS)
+* Postorder
+* Traversal
+
+**Introduced In**
+
+Module 0.4.6 — Tree Traversal
+
+---
+
+## Postorder
+
+**Definition**
+
+A depth-first traversal order in which a node is processed only after every descendant has been explored.
+
+**Purpose**
+
+Supports problems in which parent processing depends upon information produced by descendants.
+
+**Systems Context**
+
+Postorder naturally appears in expression evaluation, recursive deletion and hierarchical aggregation.
+
+**Related Concepts**
+
+* Depth-First Search (DFS)
+* Preorder
+* Traversal
+
+**Introduced In**
+
+Module 0.4.6 — Tree Traversal
+
+---
+
+## Traversal State
+
+**Definition**
+
+The temporary information maintained by a traversal algorithm in order to remember where exploration should continue.
+
+**Purpose**
+
+Allows traversal to suspend unfinished work and later resume exploration without modifying the underlying structure.
+
+**Systems Context**
+
+Traversal state is maintained implicitly by the language call stack in recursive DFS, explicitly by a stack in iterative DFS and explicitly by a queue in Breadth-First Search.
+
+**Related Concepts**
+
+* Traversal
+* Call Stack
+* Stack
+* Queue
+
+**Introduced In**
+
+Module 0.4.6 — Tree Traversal
+
+---
