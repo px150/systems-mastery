@@ -1201,3 +1201,107 @@ Traversal state is maintained implicitly by the language call stack in recursive
 Module 0.4.6 — Tree Traversal
 
 ---
+
+## Edge
+
+**Definition**
+
+An explicit relationship connecting two nodes within a graph.
+
+**Purpose**
+
+Represents the existence of a logical relationship independently of its meaning.
+
+**Systems Context**
+
+Edges model dependencies, communication links, roads, friendships, hyperlinks and many other relationships. Their semantics belong to the application rather than to the graph itself.
+
+**Related Concepts**
+
+* Graph
+* Node
+* Relationship
+* Directed Graph
+
+**Introduced In**
+
+Module 0.4.7 — Graphs
+
+---
+
+## Directed Graph
+
+**Definition**
+
+A graph in which every edge has a direction, making the relationship from one node to another independent of the reverse relationship.
+
+**Purpose**
+
+Models asymmetric relationships where connectivity is not necessarily reciprocal.
+
+**Systems Context**
+
+Directed graphs naturally appear in dependency management, hyperlinks, state machines, compiler pipelines and many other systems where information flows in a specific direction.
+
+**Related Concepts**
+
+* Graph
+* Edge
+* Relationship
+
+**Introduced In**
+
+Module 0.4.7 — Graphs
+
+---
+
+## Connectivity
+
+**Definition**
+
+The pattern of relationships that determines which nodes are reachable from one another within a graph.
+
+**Purpose**
+
+Separates the existence of nodes from the existence of relationships between them.
+
+**Systems Context**
+
+A graph may consist of multiple disconnected components or isolated nodes. Connectivity therefore depends on edges rather than on the graph itself.
+
+**Related Concepts**
+
+* Graph
+* Edge
+* Reachability
+* Relationship
+
+**Introduced In**
+
+Module 0.4.7 — Graphs
+
+---
+
+## Identity
+
+**Definition**
+
+The property that distinguishes one object from every other object, regardless of whether they contain identical values.
+
+**Purpose**
+
+Allows entities to be treated as unique objects rather than as interchangeable values.
+
+**Systems Context**
+
+Graph nodes represent entities. Multiple nodes may legitimately store identical values while remaining distinct members of the graph. Membership is therefore determined by identity rather than structural equality.
+
+**Related Concepts**
+
+* Node
+* Graph
+* Relationship
+
+**Introduced In**
+
+Module 0.4.7 — Graphs
