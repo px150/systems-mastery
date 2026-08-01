@@ -20,6 +20,23 @@ def dfs_recursive(
     return result
 
 
+def dfs_iterative(
+    start_node: GraphNode,
+) -> list[int]:
+    result = []
+    visited = []
+    stack = [start_node]
+    visited.append(start_node)
+    while stack:
+        current = stack.pop()
+        result.append(current.value)
+        for node in current.neighbors:
+            if not any(visited_node is node for visited_node in visited):
+                visited.append(node)
+                stack.append(node)
+    return result
+
+
 def graph_traversal(graph: Graph) -> list[int]:
     result = []
     visited = []

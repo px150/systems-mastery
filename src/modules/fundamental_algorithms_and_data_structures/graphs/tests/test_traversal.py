@@ -1,6 +1,6 @@
 from graphs.graph import Graph
 from graphs.graph_node import GraphNode
-from graphs.traversal import dfs_recursive, graph_traversal
+from graphs.traversal import dfs_recursive, dfs_iterative, graph_traversal
 
 
 def test_dfs_recursive_visits_every_node_once():
@@ -14,7 +14,9 @@ def test_dfs_recursive_visits_every_node_once():
     graph.add_edge(node1, node2)
     graph.add_edge(node2, node3)
     graph.add_edge(node2, node1)
-    assert dfs_recursive(node1) == [1, 2, 3]
+    expected = [1, 2, 3]
+    assert dfs_recursive(node1) == expected
+    assert dfs_iterative(node1) == expected
 
 
 def test_graph_traversal_visits_every_node_once():
