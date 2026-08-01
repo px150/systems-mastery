@@ -1,11 +1,12 @@
 from graphs.graph_node import GraphNode
+from graphs.graph import Graph
 
 
 def dfs_recursive(
     start_node: GraphNode,
     result: list[int] | None = None,
     visited: list[GraphNode] | None = None,
-):
+) -> list[int]:
     if result is None:
         result = []
     if visited is None:
@@ -16,4 +17,13 @@ def dfs_recursive(
     visited.append(start_node)
     for node in start_node.neighbors:
         dfs_recursive(node, result, visited)
+    return result
+
+
+def graph_traversal(graph: Graph) -> list[int]:
+    result = []
+    visited = []
+    for node in graph.nodes:
+        if not any(visited_node is node for visited_node in visited):
+            dfs_recursive(node, result, visited)
     return result
