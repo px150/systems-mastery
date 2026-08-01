@@ -1,3 +1,5 @@
+from collections import deque
+
 from graphs.graph_node import GraphNode
 from graphs.graph import Graph
 
@@ -34,6 +36,23 @@ def dfs_iterative(
             if not any(visited_node is node for visited_node in visited):
                 visited.append(node)
                 stack.append(node)
+    return result
+
+
+def bfs_iterative(
+    start_node: GraphNode,
+) -> list[int]:
+    result = []
+    visited = []
+    queue = deque([start_node])
+    visited.append(start_node)
+    while queue:
+        current = queue.popleft()
+        result.append(current.value)
+        for node in current.neighbors:
+            if not any(visited_node is node for visited_node in visited):
+                visited.append(node)
+                queue.append(node)
     return result
 
 
