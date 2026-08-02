@@ -655,4 +655,71 @@ Thinking this way naturally extends to dependency graphs, transportation network
 * Connectivity
 * Tree
 
---------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+## Correctness Sometimes Belongs to Algorithms Rather Than Data Structures
+
+**Context**
+
+Module 0.4.8 — Graph Traversal
+
+---
+
+### Observation
+
+Graphs intentionally remove the structural guarantees that make tree traversal simple.
+
+Correct traversal therefore cannot rely solely on the data structure.
+
+The traversal algorithm must maintain its own temporary state to preserve correctness.
+
+---
+
+### Reasoning
+
+Trees guarantee unique paths and the absence of cycles.
+
+Graphs guarantee neither.
+
+Without recording which nodes have already been discovered, traversal may revisit the same node indefinitely or process it multiple times.
+
+The graph itself should remain a neutral representation of relationships.
+
+Traversal state belongs only to the execution of the algorithm and disappears once exploration finishes.
+
+This demonstrates a broader engineering principle:
+
+Correctness sometimes emerges from the interaction between a data structure and an algorithm rather than from either one independently.
+
+---
+
+### Implications
+
+When encountering a new data structure, avoid asking only:
+
+* Which information does the structure store?
+
+Instead, ask:
+
+* Which guarantees does the structure provide?
+* Which guarantees must the algorithm provide?
+* Which state belongs permanently to the data?
+* Which state exists only during computation?
+* Which invariants depend on the algorithm rather than on the representation?
+
+Thinking this way naturally extends to shortest-path algorithms, garbage collectors, database query planners, distributed protocols and many other systems where correctness depends on temporary algorithmic state.
+
+---
+
+### Related Concepts
+
+* Graph Traversal
+* Traversal State
+* Visited Set
+* DFS
+* BFS
+* Invariant
+* Reachability
+* Correctness
+
+-------------------------------------------------------------------------------------------

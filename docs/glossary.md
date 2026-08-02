@@ -1305,3 +1305,112 @@ Graph nodes represent entities. Multiple nodes may legitimately store identical 
 **Introduced In**
 
 Module 0.4.7 — Graphs
+
+---
+
+## Connected Component
+
+**Definition**
+
+A maximal group of nodes within a graph where every node is reachable from every other node through existing edges.
+
+**Purpose**
+
+Provides the fundamental unit of graph connectivity, allowing traversal algorithms to reason about disconnected graphs.
+
+**Systems Context**
+
+A traversal starting from one node explores only the connected component containing that node. Traversing an entire graph therefore requires initiating exploration from each previously unvisited component.
+
+**Related Concepts**
+
+* Graph
+* Connectivity
+* Reachability
+* Graph Traversal
+
+**Introduced In**
+
+Module 0.4.8 — Graph Traversal
+
+---
+
+## Visited Node
+
+**Definition**
+
+A node that has already been discovered during the current execution of a graph traversal algorithm.
+
+**Purpose**
+
+Prevents repeated processing of the same node and guarantees termination even when cycles exist.
+
+**Systems Context**
+
+Visited status is temporary algorithmic state rather than a permanent property of the graph itself. It exists only for the duration of a traversal.
+
+**Related Concepts**
+
+* Traversal State
+* Graph Traversal
+* Reachability
+* Invariant
+
+**Introduced In**
+
+Module 0.4.8 — Graph Traversal
+
+---
+
+## Graph Traversal
+
+**Definition**
+
+The systematic exploration of a graph by following relationships between nodes while preserving correctness despite cycles and multiple paths.
+
+**Purpose**
+
+Provides a safe method for visiting connected nodes without processing the same node multiple times.
+
+**Systems Context**
+
+Graph traversal underlies web crawlers, dependency analysis, routing algorithms, version control systems and many other software systems built upon graph structures.
+
+**Related Concepts**
+
+* Graph
+* Traversal
+* Depth-First Search (DFS)
+* Breadth-First Search (BFS)
+* Connected Component
+
+**Introduced In**
+
+Module 0.4.8 — Graph Traversal
+
+---
+
+## Discovery
+
+**Definition**
+
+The moment at which a traversal algorithm encounters a node for the first time and records that it has been seen.
+
+**Purpose**
+
+Separates finding a node from fully exploring its outgoing relationships, preventing duplicate exploration and infinite traversal.
+
+**Systems Context**
+
+Correct graph traversal marks nodes as discovered before exploring their neighbors, ensuring that multiple paths or cycles cannot schedule the same node for exploration more than once.
+
+**Related Concepts**
+
+* Visited Node
+* Graph Traversal
+* Traversal State
+* Reachability
+
+**Introduced In**
+
+Module 0.4.8 — Graph Traversal

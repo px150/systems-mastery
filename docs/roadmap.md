@@ -732,6 +732,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 | 0.4.5 Trees                    | ✅ Completed | 2026-07-23 | 2026-07-25 |
 | 0.4.6 Tree Traversal           | ✅ Completed | 2026-07-25 | 2026-07-27 |
 | 0.4.7 Graphs                   | ✅ Completed | 2026-07-27 | 2026-07-31 |
+| 0.4.7 Graph Traversal          | ✅ Completed | 2026-07-31 | 2026-08-01 |
 
 ---
 
