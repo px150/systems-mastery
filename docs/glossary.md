@@ -1414,3 +1414,307 @@ Correct graph traversal marks nodes as discovered before exploring their neighbo
 **Introduced In**
 
 Module 0.4.8 — Graph Traversal
+
+---
+
+---
+
+## Hash Function
+
+**Definition**
+
+A function that transforms a key into a position within a hash table.
+
+**Purpose**
+
+Allows information to be located by calculation instead of searching through the entire collection.
+
+**Systems Context**
+
+Hash functions compress a potentially large key space into a smaller set of available positions. Because multiple keys may produce the same position, hash functions must be combined with collision resolution mechanisms.
+
+**Related Concepts**
+
+* Hash Table
+* Key
+* Bucket
+* Collision
+* Direct Addressing
+
+**Introduced In**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+## Hash Table
+
+**Definition**
+
+A data structure that stores key-value associations by calculating the location where each key should be stored.
+
+**Purpose**
+
+Provides efficient average-case lookup, insertion and update operations by replacing full collection searches with calculated access.
+
+**Systems Context**
+
+Hash tables are fundamental components in dictionaries, caches, symbol tables, indexes and many other systems where fast lookup is a primary requirement.
+
+**Related Concepts**
+
+* Hash Function
+* Bucket
+* Key
+* Value
+* Hash Set
+* Load Factor
+
+**Introduced In**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+## Key
+
+**Definition**
+
+The identifier used to locate and distinguish an entry within a hash-based structure.
+
+**Purpose**
+
+Provides the information required to calculate a location and determine whether two entries represent the same stored element.
+
+**Systems Context**
+
+Keys define identity within maps and sets. The same key can update an existing association but should not create duplicate entries.
+
+**Related Concepts**
+
+* Hash Table
+* Value
+* Hash Function
+* Identity
+
+**Introduced In**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+## Value
+
+**Definition**
+
+The information associated with a key inside a hash table.
+
+**Purpose**
+
+Allows a hash table to represent relationships between identifiers and stored information.
+
+**Systems Context**
+
+Values are meaningful in maps but may become irrelevant in structures such as hash sets, where only key existence matters.
+
+**Related Concepts**
+
+* Key
+* Hash Table
+* Hash Set
+* Sentinel Value
+
+**Introduced In**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+## Bucket
+
+**Definition**
+
+A storage location within a hash table where one or more entries may be placed after applying a hash function.
+
+**Purpose**
+
+Provides the location where entries sharing the same calculated index are stored.
+
+**Systems Context**
+
+Buckets allow hash tables to handle collisions by storing multiple entries together and searching only within the relevant subset of the collection.
+
+**Related Concepts**
+
+* Hash Table
+* Hash Function
+* Collision
+* Separate Chaining
+
+**Introduced In**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+## Collision
+
+**Definition**
+
+A situation where multiple keys produce the same bucket index through a hash function.
+
+**Purpose**
+
+Represents an unavoidable consequence of mapping a larger key space into a smaller storage space.
+
+**Systems Context**
+
+Collisions are not failures. Correct hash tables preserve all entries by resolving collisions through strategies such as separate chaining or open addressing.
+
+**Related Concepts**
+
+* Hash Function
+* Bucket
+* Separate Chaining
+* Rehashing
+
+**Introduced In**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+## Separate Chaining
+
+**Definition**
+
+A collision resolution strategy where each bucket stores multiple entries instead of a single entry.
+
+**Purpose**
+
+Allows different keys mapping to the same bucket to coexist without overwriting each other.
+
+**Systems Context**
+
+Separate chaining transforms collisions into local searches inside a bucket rather than failures of the entire structure.
+
+**Related Concepts**
+
+* Collision
+* Bucket
+* Hash Table
+* Linked Structure
+
+**Introduced In**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+## Load Factor
+
+**Definition**
+
+The ratio between the number of stored entries and the number of available buckets in a hash table.
+
+**Purpose**
+
+Measures how densely a hash table is populated and helps determine when resizing may be necessary.
+
+**Systems Context**
+
+A high load factor increases the average number of entries per bucket, reducing lookup efficiency. Hash tables maintain performance by controlling this density through rehashing.
+
+**Related Concepts**
+
+* Hash Table
+* Capacity
+* Rehashing
+* Scalability
+
+**Introduced In**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+## Rehashing
+
+**Definition**
+
+The process of rebuilding a hash table with a different capacity and recalculating the position of every stored entry.
+
+**Purpose**
+
+Restores efficient distribution of entries when the current table becomes too dense.
+
+**Systems Context**
+
+Rehashing does not simply copy data into a larger array. Because positions depend on capacity, every key must be indexed again using the new table configuration.
+
+**Related Concepts**
+
+* Hash Table
+* Hash Function
+* Load Factor
+* Capacity
+* Invariant
+
+**Introduced In**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+## Hash Set
+
+**Definition**
+
+A hash-based structure that stores unique elements by using the element itself as the key and ignoring the associated value.
+
+**Purpose**
+
+Provides efficient membership checks while guaranteeing that each element appears only once.
+
+**Systems Context**
+
+Hash sets are commonly used for visited tracking, duplicate detection and membership queries. They can be implemented by composing a hash table with a placeholder value.
+
+**Related Concepts**
+
+* Hash Table
+* Key
+* Value
+* Sentinel Value
+* Membership
+
+**Introduced In**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+## Sentinel Value
+
+**Definition**
+
+A special placeholder value used to represent a condition or state rather than meaningful application data.
+
+**Purpose**
+
+Allows a structure to reuse existing mechanisms while indicating that only presence or state matters.
+
+**Systems Context**
+
+Hash sets use sentinel values because the hash table requires a stored value even though the set only cares about whether a key exists.
+
+**Related Concepts**
+
+* Hash Set
+* Value
+* Hash Table
+* Placeholder
+
+**Introduced In**
+
+Module 0.4.9 — Hash Tables

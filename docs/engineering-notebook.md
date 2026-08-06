@@ -723,3 +723,132 @@ Thinking this way naturally extends to shortest-path algorithms, garbage collect
 * Correctness
 
 -------------------------------------------------------------------------------------------
+
+## Efficient Lookup Requires Calculated Location
+
+**Context**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+### Observation
+
+Searching through a collection becomes increasingly expensive as the collection grows.
+
+Arrays and linked structures require some form of traversal to locate an element.
+
+Hash tables approach lookup differently.
+
+Instead of discovering where information is stored by searching, they calculate where information should be stored.
+
+---
+
+### Reasoning
+
+Direct addressing demonstrates the ideal case:
+
+the key itself identifies the memory location.
+
+However, real systems cannot allocate memory for every possible key.
+
+Hash functions therefore compress a large key space into a smaller set of available positions.
+
+This introduces a fundamental trade-off:
+
+lookup becomes efficient, but multiple keys may map to the same location.
+
+Correctness is preserved not by preventing collisions, but by designing mechanisms that handle them safely.
+
+---
+
+### Implications
+
+When designing a lookup structure, avoid asking only:
+
+* How can elements be stored?
+
+Instead ask:
+
+* Which operation is becoming expensive?
+* Can the location of information be calculated?
+* What information is lost when compressing the search space?
+* Which invariants must remain true after optimization?
+* Which trade-offs are introduced?
+
+---
+
+### Related Concepts
+
+* Hash Function
+* Direct Addressing
+* Lookup
+* Collision
+* Trade-off
+* Optimization
+
+-------------------------------------------------------------------------------------------
+
+## Correctness Must Survive Imperfect Indexing
+
+**Context**
+
+Module 0.4.9 — Hash Tables
+
+---
+
+### Observation
+
+A hash function does not uniquely identify an element.
+
+Different keys may produce the same bucket.
+
+Hash tables therefore cannot rely on the index alone to guarantee correctness.
+
+---
+
+### Reasoning
+
+The hash function provides an efficient approximation of location.
+
+The actual identity of an element is verified inside the bucket by comparing keys.
+
+Collision handling, therefore, is not an optimization detail.
+
+It is part of the correctness model.
+
+Rehashing introduces another example of this principle.
+
+Changing the table capacity changes the calculated positions of elements, requiring the entire index to be rebuilt.
+
+The data remains the same.
+
+Only its organization changes.
+
+---
+
+### Implications
+
+When introducing optimization mechanisms, avoid asking only:
+
+* Does this make the system faster?
+
+Instead ask:
+
+* Which guarantees could this optimization break?
+* Which information must remain recoverable?
+* Which state must be rebuilt after structural changes?
+* Which responsibilities belong to the algorithm and which belong to the data structure?
+
+---
+
+### Related Concepts
+
+* Collision Resolution
+* Separate Chaining
+* Rehashing
+* Invariant
+* Determinism
+* Data Integrity
+
+-------------------------------------------------------------------------------------------
