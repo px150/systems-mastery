@@ -1718,3 +1718,288 @@ Hash sets use sentinel values because the hash table requires a stored value eve
 **Introduced In**
 
 Module 0.4.9 — Hash Tables
+
+---
+
+## Heap
+
+**Definition**
+
+A partially ordered data structure represented as a complete binary tree in which every parent satisfies a defined ordering relationship with its children.
+
+**Purpose**
+
+Provides efficient access to the highest- or lowest-priority element without maintaining complete ordering across the collection.
+
+**Systems Context**
+
+Heaps are commonly used to implement priority queues, schedulers, event systems and algorithms that repeatedly need to select the next highest- or lowest-priority element.
+
+**Related Concepts**
+
+* Max-Heap
+* Heap Property
+* Complete Binary Tree
+* Priority Queue
+* Partial Ordering
+* Sift Up
+* Sift Down
+
+**Introduced In**
+
+Module 0.4.10 — Heaps
+
+---
+
+## Max-Heap
+
+**Definition**
+
+A heap in which every parent is greater than or equal to each of its children.
+
+**Purpose**
+
+Guarantees that the maximum element is always located at the root and can therefore be accessed in constant time.
+
+**Systems Context**
+
+Max-heaps are useful when systems repeatedly need to identify or remove the highest-priority element while continuing to accept new elements efficiently.
+
+**Related Concepts**
+
+* Heap
+* Heap Property
+* Priority Queue
+* Sift Up
+* Sift Down
+* Root
+
+**Introduced In**
+
+Module 0.4.10 — Heaps
+
+---
+
+## Heap Property
+
+**Definition**
+
+The local ordering invariant requiring every parent in a heap to satisfy the heap's ordering relationship with its children.
+
+**Purpose**
+
+Guarantees that the highest- or lowest-priority element remains at the root without requiring the entire collection to be sorted.
+
+**Systems Context**
+
+In a max-heap, every parent must be greater than or equal to its children. Heap operations preserve or restore this invariant through sift-up and sift-down.
+
+**Related Concepts**
+
+* Heap
+* Max-Heap
+* Invariant
+* Partial Ordering
+* Sift Up
+* Sift Down
+
+**Introduced In**
+
+Module 0.4.10 — Heaps
+
+---
+
+## Complete Binary Tree
+
+**Definition**
+
+A binary tree in which every level is completely filled except possibly the last, which is filled from left to right.
+
+**Purpose**
+
+Keeps tree height logarithmic while allowing parent-child relationships to be represented implicitly through array indexes.
+
+**Systems Context**
+
+Binary heaps use the complete-tree property to avoid explicit node relationships. Parent and child positions can instead be calculated directly from their indexes in an array.
+
+**Related Concepts**
+
+* Heap
+* Array
+* Tree
+* Root
+* Heapify
+
+**Introduced In**
+
+Module 0.4.10 — Heaps
+
+---
+
+## Partial Ordering
+
+**Definition**
+
+An ordering model that preserves only the relationships required by an abstraction rather than establishing a complete order between every element.
+
+**Purpose**
+
+Avoids the computational cost of maintaining ordering information that the expected workload does not require.
+
+**Systems Context**
+
+A heap maintains ordering only between parents and children. Elements in unrelated branches need not be ordered relative to one another, allowing priority-based insertion and extraction without maintaining a fully sorted collection.
+
+**Related Concepts**
+
+* Heap
+* Heap Property
+* Priority Queue
+* Invariant
+* Trade-off
+
+**Introduced In**
+
+Module 0.4.10 — Heaps
+
+---
+
+## Sift Up
+
+**Definition**
+
+A heap repair operation that repeatedly compares a node with its parent and moves it upward until the heap property is restored.
+
+**Purpose**
+
+Restores heap ordering after inserting a new element while modifying only the path that may contain a new violation.
+
+**Systems Context**
+
+Heap insertion appends a new element to preserve the complete-tree property, then uses sift-up to restore the heap property in O(log n) time.
+
+**Related Concepts**
+
+* Heap
+* Heap Property
+* Sift Down
+* Complete Binary Tree
+* Invariant
+
+**Introduced In**
+
+Module 0.4.10 — Heaps
+
+---
+
+## Sift Down
+
+**Definition**
+
+A heap repair operation that repeatedly compares a node with its children and moves it downward until the heap property is restored.
+
+**Purpose**
+
+Restores heap ordering after extraction or during heap construction while modifying only the branch containing a possible violation.
+
+**Systems Context**
+
+In a max-heap, sift-down swaps with the larger child when necessary so that the resulting parent remains greater than or equal to both children.
+
+**Related Concepts**
+
+* Heap
+* Heap Property
+* Sift Up
+* Heapify
+* Complete Binary Tree
+* Invariant
+
+**Introduced In**
+
+Module 0.4.10 — Heaps
+
+---
+
+## Heapify
+
+**Definition**
+
+The process of transforming an existing collection into a valid heap by restoring the heap property from the bottom of the structure upward.
+
+**Purpose**
+
+Builds a heap from existing data more efficiently than inserting every element individually.
+
+**Systems Context**
+
+Bottom-up heapify begins at the last internal node and applies sift-down toward the root. Although an individual sift-down may require O(log n) work, the complete heap can be built in O(n) time because most nodes are close to the bottom and can move only a small number of levels.
+
+**Related Concepts**
+
+* Heap
+* Sift Down
+* Complete Binary Tree
+* Heap Property
+* Time Complexity
+
+**Introduced In**
+
+Module 0.4.10 — Heaps
+
+---
+
+## Priority Queue
+
+**Definition**
+
+An access abstraction in which elements are selected for processing according to priority rather than insertion order.
+
+**Purpose**
+
+Allows a system to efficiently determine which item should be processed next when different items have different priorities.
+
+**Systems Context**
+
+Priority queues appear in schedulers, event systems, graph algorithms and resource management. A heap is a common implementation because it provides O(1) access to the highest-priority element and O(log n) insertion and extraction.
+
+**Related Concepts**
+
+* Heap
+* Max-Heap
+* Queue
+* Access Policy
+* Priority
+* Partial Ordering
+
+**Introduced In**
+
+Module 0.4.10 — Heaps
+
+---
+
+## Priority
+
+**Definition**
+
+A value used to determine the relative processing precedence of an item within a priority-based system.
+
+**Purpose**
+
+Separates the order in which work should be processed from the order in which that work entered the system.
+
+**Systems Context**
+
+Priority queues use priority values to determine which item should be processed next. Multiple items may share the same priority, requiring an additional ordering rule if stable processing order is needed.
+
+**Related Concepts**
+
+* Priority Queue
+* Heap
+* Max-Heap
+* Access Policy
+
+**Introduced In**
+
+Module 0.4.10 — Heaps

@@ -852,3 +852,134 @@ Instead ask:
 * Data Integrity
 
 -------------------------------------------------------------------------------------------
+
+## Partial Ordering Avoids Paying for Information the System Does Not Need
+
+**Context**
+
+Module 0.4.10 — Heaps
+
+---
+
+### Observation
+
+A system that needs only the highest-priority element does not need every element to be completely ordered.
+
+Heaps exploit this distinction.
+
+Instead of maintaining global ordering, a max-heap preserves only the local invariant that every parent is greater than or equal to its children.
+
+---
+
+### Reasoning
+
+A sorted collection maintains relationships between elements that priority-based access may never use.
+
+This additional information has a maintenance cost, particularly when elements are inserted frequently.
+
+A heap deliberately weakens the ordering guarantee.
+
+By maintaining only enough structure to guarantee that the maximum remains at the root, it provides constant-time access to the highest-priority element while limiting insertion and extraction to a single root-to-leaf path.
+
+This demonstrates a broader engineering principle:
+
+> Efficient systems often emerge by maintaining only the guarantees required by the workload.
+
+---
+
+### Implications
+
+When choosing or designing a data structure, avoid asking only:
+
+* How can these elements be ordered?
+
+Instead ask:
+
+* Which ordering guarantees does the system actually require?
+* Am I maintaining information that the workload never uses?
+* What does maintaining that additional information cost?
+* Can weaker invariants still guarantee the operations I care about?
+* Does the expected workload justify complete or partial ordering?
+
+This perspective extends beyond heaps to indexes, caches, schedulers, databases and distributed systems where maintaining unnecessary guarantees can become a significant source of cost.
+
+---
+
+### Related Concepts
+
+* Heap
+* Partial Ordering
+* Heap Property
+* Priority Queue
+* Invariant
+* Workload
+* Trade-off
+* Overhead
+
+---
+
+## Multiple Representations Create Consistency Obligations
+
+**Context**
+
+Module 0.4.10 — Heaps
+
+---
+
+### Observation
+
+A system may maintain multiple data structures over the same logical information because different structures optimize different access patterns.
+
+For example, a heap can provide efficient priority access while a hash table provides efficient lookup by identifier.
+
+Each structure may be correct independently while the system as a whole is incorrect if they disagree about the underlying state.
+
+---
+
+### Reasoning
+
+Maintaining multiple representations trades additional memory and coordination complexity for more efficient access patterns.
+
+An insertion, deletion or modification may therefore become a multi-structure state transition.
+
+Correctness requires every affected representation to move from one mutually consistent state to another.
+
+A failure to update one structure can leave stale or unreachable information even when the individual data structures remain internally valid.
+
+This demonstrates a broader engineering principle:
+
+> Every additional representation of the same logical state creates a synchronization obligation.
+
+---
+
+### Implications
+
+When maintaining multiple indexes or representations, avoid asking only:
+
+* Is each data structure individually correct?
+
+Instead ask:
+
+* Which structures represent the same logical state?
+* Which operations must update more than one representation?
+* What invariants connect those representations?
+* Can one representation become stale?
+* What happens if an update succeeds in one structure but not another?
+* Is the additional access efficiency worth the consistency cost?
+
+This perspective extends naturally to database indexes, caches, search indexes, replicated state and distributed systems.
+
+---
+
+### Related Concepts
+
+* Multiple Indexes
+* State Consistency
+* Synchronization
+* Invariant
+* Heap
+* Hash Table
+* Priority Queue
+* Trade-off
+
+--------------------------------------------------------------------------------------------
