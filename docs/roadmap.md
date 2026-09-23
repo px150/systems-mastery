@@ -1,4 +1,4 @@
-# Systems Mastery Roadmap (V1)
+# Systems Mastery Roadmap (V1.1)
 
 > *A living engineering curriculum for mastering modern software systems.*
 
@@ -75,7 +75,7 @@ systems-mastery/
 │       │   │       └── test_insert.py
 │       │   └── ...
 │       ├── computer-architecture/
-│       ├── cpp-for-systems/
+│       ├── low-level-programming/
 │       ├── operating-systems/
 │       ├── concurrency/
 │       ├── networking/
@@ -105,21 +105,20 @@ Each part of the repository should remain independently understandable while con
 
 # Language Roles
 
-## C++
+## C
 
-Introduced after Computer Architecture as the primary implementation language for systems programming.
+Introduced after Computer Architecture as the primary language for low-level systems work.
 
-Primary language for:
+Used when direct exposure to machine and operating-system mechanisms is part of the learning objective, especially for:
 
-* systems programming;
-* networking;
-* infrastructure components;
-* concurrency;
-* production-oriented implementations;
-* performance-sensitive engineering;
-* reading and understanding production code.
+* memory representation and layout;
+* pointers and explicit resource lifetime;
+* operating-system interfaces and system calls;
+* low-level concurrency;
+* sockets and network I/O;
+* performance-oriented experiments.
 
-The objective is to understand modern software systems through a language that exposes low-level concepts such as memory layout, ownership, resource management, and performance.
+C is intentionally used as a transparent systems tool rather than as a language-mastery objective. The curriculum should introduce only the language features required to expose the underlying mechanism being studied.
 
 ---
 
@@ -138,13 +137,31 @@ Used for:
 
 Python minimizes unnecessary language complexity while foundational engineering concepts are being developed.
 
-As Systems Mastery progresses, implementation gradually transitions toward C++ whenever low-level control becomes an essential part of the learning objective.
+It remains available throughout the curriculum whenever rapid experimentation is more valuable than low-level control.
+
+---
+
+## Go
+
+Introduced selectively when the curriculum moves from low-level mechanisms toward network services, distributed systems, observability, and infrastructure.
+
+Go is used when a small implementation surface helps keep attention on system architecture rather than language complexity, especially for:
+
+* backend services;
+* concurrent network services;
+* distributed-system experiments;
+* infrastructure-oriented components;
+* production-style service implementations.
+
+Go is not a separate language-learning track. Required language features are introduced on demand inside the module that needs them.
 
 ---
 
 ## Production Code Reading
 
-Throughout the journey, production systems written in C, Go, Rust, and other languages are continuously studied.
+Throughout the journey, production systems written in C, C++, Go, Rust, and other languages are continuously studied.
+
+C++ remains important as a production language to read and understand, but it is no longer a mandatory implementation language for the curriculum.
 
 The objective is to understand architecture, engineering decisions, and implementation trade-offs independently of the implementation language.
 
@@ -269,24 +286,24 @@ Repository components:
 
 ---
 
-# Phase 2 — C++ for Systems
+# Phase 2 — Low-Level Programming Foundations
 
 ## Objective
 
-Introduce the subset of modern C++ required throughout the remainder of Systems Mastery.
+Introduce the subset of C required to investigate low-level software behavior directly and to support the operating-system, concurrency, and networking phases that follow.
 
-Rather than teaching C++ comprehensively, this phase introduces the language as a practical systems programming tool whose abstractions closely reflect the underlying hardware and operating system.
+This phase deliberately avoids turning Systems Mastery into a language-learning curriculum. C is used because it exposes memory, data layout, compilation, resource lifetime, and operating-system interfaces with minimal abstraction overhead.
 
-The objective is not language mastery, but engineering fluency.
+The objective is not C mastery, but sufficient low-level fluency to reason about what the machine and operating system are doing.
 
 ### Modules
 
-* 2.1 The C++ Compilation Model
-* 2.2 References and Pointers
-* 2.3 Stack and Heap Allocation
-* 2.4 RAII and Resource Ownership
-* 2.5 Move Semantics
-* 2.6 Essential Standard Library
+* 2.1 Compilation, Linking, and Object Files
+* 2.2 Pointers, Arrays, and Memory Addresses
+* 2.3 Stack, Heap, and Object Lifetime
+* 2.4 Structs, Data Layout, and Alignment
+* 2.5 Manual Resource Management and Error Handling
+* 2.6 Essential C Runtime and Systems Interfaces
 
 Repository components:
 
@@ -779,11 +796,37 @@ The roadmap exists to maximize learning—not to constrain it.
 
 # Roadmap Governance
 
-**Version:** V1
+**Version:** V1.1
 
 **Status:** Approved
 
-**Approval Date:** 2026-07-06
+**Approval Date:** 2026-09-21
+
+
+## V1.1 Approved Modification — Language Strategy
+
+### Observation
+
+Using C++ as the mandatory implementation language for most later phases adds a substantial language-learning burden that is not required to achieve the curriculum's primary systems-engineering objectives. The learner already has some C familiarity, while many core mechanisms in operating systems, concurrency, and networking can be exposed more directly through C.
+
+### Proposal
+
+* Replace the dedicated **C++ for Systems** phase with **Low-Level Programming Foundations** based on C.
+* Use C where low-level mechanisms are the subject of study.
+* Introduce Go selectively for higher-level backend, distributed-system, observability, and infrastructure implementations when doing so reduces incidental complexity.
+* Retain C++ as an important production language for code reading rather than as a mandatory implementation language.
+
+### Motivation
+
+The change preserves low-level depth while reducing incidental language complexity. It keeps implementation choices subordinate to the actual learning objective: understanding systems, architecture, runtime behavior, and engineering trade-offs.
+
+### Impact
+
+* Phase 2 is renamed and redesigned around C.
+* The repository component `cpp-for-systems/` becomes `low-level-programming/`.
+* Later modules may choose C, Python, or Go according to the mechanism being studied.
+* No systems topic or integration checkpoint is removed.
+* Existing completed Phase 0 work is unaffected.
 
 Future modifications are permitted only when justified by one of the following:
 
