@@ -982,4 +982,145 @@ This perspective extends naturally to database indexes, caches, search indexes, 
 * Priority Queue
 * Trade-off
 
---------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+## Search Efficiency Emerges from Eliminating Candidates
+
+**Context**
+
+Module 0.4.11 — Searching
+
+---
+
+### Observation
+
+Searching is the process of progressively eliminating possible locations until the target is found or no candidates remain.
+
+The efficiency of a search therefore depends on how much of the remaining search space each observation can safely eliminate.
+
+---
+
+### Reasoning
+
+In an unordered collection, comparing the target with one element usually provides information only about that element.
+
+If the values differ, only one candidate can be eliminated.
+
+Linear search therefore reduces the search space one element at a time, producing O(n) worst-case behavior.
+
+Ordering introduces additional information.
+
+When a target is compared with the middle element of a sorted collection, the ordering relationship determines not only that the middle element is incorrect, but also that an entire half of the remaining candidates cannot contain the target.
+
+Binary search exploits this information repeatedly:
+
+n → n/2 → n/4 → ... → 1
+
+The logarithmic behavior does not emerge from performing comparisons faster.
+
+It emerges from extracting more information from each comparison.
+
+This demonstrates a broader engineering principle:
+
+> Efficient algorithms often emerge from using structure to eliminate unnecessary work.
+
+---
+
+### Implications
+
+When solving a search problem, avoid asking only:
+
+* Which search algorithm should I use?
+
+Instead ask:
+
+* What is the current search space?
+* Which candidates can each observation safely eliminate?
+* What information does the organization of the data provide?
+* Can additional structure reduce the amount of work required?
+* Is maintaining that structure justified by the expected workload?
+
+This perspective extends naturally to indexes, database queries, routing tables, symbol lookup, caches and many other systems in which locating information becomes a significant cost.
+
+---
+
+### Related Concepts
+
+* Search
+* Search Space
+* Linear Search
+* Binary Search
+* Ordering
+* Time Complexity
+* Workload
+* Index
+
+------------------------------------------------------------------------------------------
+
+## Algorithmic Complexity Depends on Representation
+
+**Context**
+
+Module 0.4.11 — Searching
+
+---
+
+### Observation
+
+The complexity of an algorithm depends not only on its logical strategy, but also on the cost of the operations provided by the underlying data representation.
+
+Binary search illustrates this dependency clearly.
+
+---
+
+### Reasoning
+
+Binary search reduces the candidate space by half after every comparison.
+
+However, this strategy assumes that the middle element of the remaining range can be accessed efficiently.
+
+Arrays provide constant-time random access, allowing each midpoint to be reached in O(1) time.
+
+Linked structures do not provide the same property.
+
+Reaching a middle element requires traversal through preceding relationships, introducing additional work even though the collection may still be logically ordered.
+
+The same search strategy can therefore have different practical complexity depending on the representation on which it operates.
+
+This demonstrates a broader engineering principle:
+
+> Algorithmic complexity must be evaluated together with the cost of the operations provided by the underlying representation.
+
+---
+
+### Implications
+
+When analyzing an algorithm, avoid asking only:
+
+* What is the complexity of this algorithm?
+
+Instead ask:
+
+* Which primitive operations does the algorithm assume?
+* What is the complexity of those operations in the chosen representation?
+* Does the representation provide efficient access to the information the algorithm needs?
+* Would a different representation better match the expected workload?
+* Is additional organization worth its maintenance and memory cost?
+
+This perspective prevents complexity analysis from becoming detached from the systems in which algorithms actually execute.
+
+---
+
+### Related Concepts
+
+* Binary Search
+* Random Access
+* Sequential Access
+* Array
+* Linked Structure
+* Traversal
+* Time Complexity
+* Representation
+* Trade-off
+
+------------------------------------------------------------------------------------------

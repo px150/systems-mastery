@@ -2003,3 +2003,209 @@ Priority queues use priority values to determine which item should be processed 
 **Introduced In**
 
 Module 0.4.10 — Heaps
+
+---
+
+## Search
+
+### Definition
+
+The process of locating a target within a collection of possible candidates.
+
+A search succeeds when the target is found and fails when the candidate space is exhausted without finding it.
+
+---
+
+### Purpose
+
+Search provides a systematic way to determine whether a target exists and, when required, where it is located.
+
+Its efficiency depends on both the search strategy and the organization of the underlying data.
+
+---
+
+### Systems Context
+
+Searching appears throughout software systems whenever information must be located among multiple possibilities.
+
+Examples include:
+
+* finding a record in memory
+* locating a database row
+* resolving a configuration value
+* finding a symbol
+* locating a file
+* looking up a cached value
+* selecting a route
+* filtering logs
+
+The cost of searching often becomes important as collections grow or the same lookup operation is repeated frequently.
+
+---
+
+### Related Concepts
+
+* Search Space
+* Linear Search
+* Binary Search
+* Index
+* Lookup
+* Time Complexity
+* Representation
+
+---
+
+### Introduced In
+
+Module 0.4.11 — Searching
+
+---
+
+## Search Space
+
+### Definition
+
+The set of candidates that may still contain the target during a search.
+
+As information is gathered, candidates that cannot contain the target are eliminated from the search space.
+
+---
+
+### Purpose
+
+Thinking in terms of search space makes it possible to reason about search efficiency independently of a particular implementation.
+
+An efficient search strategy attempts to eliminate as much of the remaining search space as possible with each useful observation.
+
+---
+
+### Systems Context
+
+In an unordered collection, a comparison may eliminate only one candidate.
+
+In an ordered collection, a comparison may eliminate an entire region of candidates.
+
+This difference explains why linear search reduces the search space one element at a time while binary search can repeatedly divide it in half.
+
+The same reasoning appears in many systems where structure or additional information allows unnecessary work to be excluded.
+
+---
+
+### Related Concepts
+
+* Search
+* Linear Search
+* Binary Search
+* Ordering
+* Candidate
+* Time Complexity
+
+---
+
+### Introduced In
+
+Module 0.4.11 — Searching
+
+---
+
+## Linear Search
+
+### Definition
+
+A search algorithm that examines elements sequentially until the target is found or the collection is exhausted.
+
+---
+
+### Purpose
+
+Linear search provides a simple search strategy that requires no ordering or additional indexing structure.
+
+It is particularly useful when the collection is small, unordered, searched infrequently, or when the cost of creating additional organization is not justified.
+
+---
+
+### Systems Context
+
+For a collection containing `n` elements:
+
+* best-case time complexity is O(1)
+* worst-case time complexity is O(n)
+* auxiliary space complexity is O(1) for an iterative implementation
+
+Each unsuccessful comparison generally eliminates only the element that was inspected.
+
+Linear search therefore scales directly with the size of the candidate space.
+
+---
+
+### Related Concepts
+
+* Search
+* Search Space
+* Binary Search
+* Sequential Access
+* Time Complexity
+* Array
+* Linked Structure
+
+---
+
+### Introduced In
+
+Module 0.4.11 — Searching
+
+---
+
+## Binary Search
+
+### Definition
+
+A search algorithm that repeatedly compares a target with the middle element of an ordered search space and eliminates the half that cannot contain the target.
+
+---
+
+### Purpose
+
+Binary search reduces the amount of work required to locate a target by exploiting ordering information.
+
+Instead of eliminating candidates individually, each comparison can eliminate approximately half of the remaining search space.
+
+---
+
+### Systems Context
+
+For an ordered collection with efficient random access:
+
+* best-case time complexity is O(1)
+* worst-case time complexity is O(log n)
+* auxiliary space complexity is O(1) for an iterative implementation
+* auxiliary space complexity is O(log n) for a recursive implementation due to stack frames
+
+Binary search depends on more than ordering alone.
+
+Efficient midpoint access is also important. Arrays provide O(1) random access, while linked structures require traversal to reach an arbitrary position.
+
+Its practical value must also be considered together with the cost of creating and maintaining the ordering it requires.
+
+---
+
+### Related Concepts
+
+* Search
+* Search Space
+* Linear Search
+* Random Access
+* Ordering
+* Array
+* Linked Structure
+* Time Complexity
+* Recursion
+* Index
+
+---
+
+### Introduced In
+
+Module 0.4.11 — Searching
+
+---

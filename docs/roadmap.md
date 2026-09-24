@@ -752,6 +752,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 | 0.4.8 Graph Traversal          | ✅ Completed | 2026-07-31 | 2026-08-01 |
 | 0.4.9 Hash Tables              | ✅ Completed | 2026-08-04 | 2026-08-06 |
 | 0.4.10 Heaps                   | ✅ Completed | 2026-08-07 | 2026-08-09 |
+| 0.4.11 Searching               | ✅ Completed | 2026-09-24 | 2026-09-24 |
 
 ---
 
