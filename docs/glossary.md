@@ -2209,3 +2209,205 @@ Its practical value must also be considered together with the cost of creating a
 Module 0.4.11 — Searching
 
 ---
+
+## Sorting
+
+### Definition
+
+The process of reorganizing a collection according to a defined ordering relationship.
+
+---
+
+### Purpose
+
+Sorting introduces structure into data so that later operations can exploit ordering information.
+
+---
+
+### Systems Context
+
+Sorting is useful when the resulting organization supports operations such as binary search, range queries, merging, ordered traversal or reporting.
+
+Creating order has a computational cost.
+
+Whether that cost is justified depends on the workload, how often the resulting order will be reused, how frequently the data changes and whether another representation better matches the required access pattern.
+
+---
+
+### Related Concepts
+
+* Ordering
+* Searching
+* Binary Search
+* Time Complexity
+* Space Complexity
+* Workload
+* Stability
+
+---
+
+### Introduced In
+
+Module 0.4.12 — Sorting
+
+---
+
+## Selection Sort
+
+### Definition
+
+A sorting algorithm that repeatedly finds the smallest remaining element and moves it into the next globally final position.
+
+---
+
+### Purpose
+
+Provides a simple sorting strategy based on progressively finalizing positions within a collection.
+
+---
+
+### Systems Context
+
+Selection sort maintains a prefix whose elements are already in their final global positions.
+
+Its time complexity is O(n²) even when the input is already sorted because each position still requires searching the remaining suffix.
+
+It operates in place and requires O(1) auxiliary space.
+
+---
+
+### Related Concepts
+
+* Sorting
+* Invariant
+* Time Complexity
+* Space Complexity
+* Insertion Sort
+
+---
+
+### Introduced In
+
+Module 0.4.12 — Sorting
+
+---
+
+## Insertion Sort
+
+### Definition
+
+A sorting algorithm that processes elements incrementally by inserting each new element into its correct position within an already sorted prefix.
+
+---
+
+### Purpose
+
+Provides an in-place sorting strategy that can exploit existing order in the input.
+
+---
+
+### Systems Context
+
+Insertion sort maintains a prefix that is sorted relative to the elements processed so far, although those elements are not necessarily in their final global positions.
+
+Its best-case time complexity is O(n) when the collection is already ordered, while its worst-case complexity is O(n²).
+
+It requires O(1) auxiliary space.
+
+---
+
+### Related Concepts
+
+* Sorting
+* Invariant
+* Selection Sort
+* Time Complexity
+* Space Complexity
+
+---
+
+### Introduced In
+
+Module 0.4.12 — Sorting
+
+---
+
+## Merge Sort
+
+### Definition
+
+A divide-and-conquer sorting algorithm that recursively sorts smaller portions of a collection and combines them by merging already sorted sequences.
+
+---
+
+### Purpose
+
+Provides predictable O(n log n) sorting by decomposing a large sorting problem into smaller independent problems followed by linear merging.
+
+---
+
+### Systems Context
+
+Merge sort recursively divides a collection until each portion contains at most one element.
+
+Sorted portions are then combined through O(n) merge operations across O(log n) recursive levels, producing O(n log n) time complexity.
+
+The implementation studied in Systems Mastery requires O(n) auxiliary space and can preserve stability when equal elements are merged in their original relative order.
+
+---
+
+### Related Concepts
+
+* Sorting
+* Divide and Conquer
+* Recursion
+* Stability
+* Time Complexity
+* Space Complexity
+
+---
+
+### Introduced In
+
+Module 0.4.12 — Sorting
+
+---
+
+## Stability
+
+### Definition
+
+A sorting guarantee that preserves the original relative order of elements whose sorting keys are equal.
+
+---
+
+### Purpose
+
+Preserves meaningful ordering information that is not represented by the current sorting key.
+
+---
+
+### Systems Context
+
+Stable sorting becomes important when records may already contain useful ordering from a previous operation.
+
+For example, if records are ordered by name and then stably sorted by age, records with the same age remain ordered by name.
+
+Stability is a property of the algorithm and its implementation rather than a consequence of the final values merely being sorted.
+
+---
+
+### Related Concepts
+
+* Sorting
+* Merge Sort
+* Ordering
+* Invariant
+
+---
+
+### Introduced In
+
+Module 0.4.12 — Sorting
+
+---

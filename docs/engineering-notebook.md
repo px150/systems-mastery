@@ -1124,3 +1124,80 @@ This perspective prevents complexity analysis from becoming detached from the sy
 * Trade-off
 
 ------------------------------------------------------------------------------------------
+
+## Organization Is Work Paid in Advance
+
+**Context**
+
+Module 0.4.12 — Sorting
+
+---
+
+### Observation
+
+Ordering data is not inherently valuable.
+
+Its value comes from the future operations that can exploit the information created by that order.
+
+Sorting therefore represents a form of work performed in advance.
+
+---
+
+### Reasoning
+
+An unordered collection may be cheap to build, but later operations may need to inspect large portions of it.
+
+Sorting introduces additional structure at an upfront computational cost.
+
+Once that structure exists, operations such as binary search, range queries, merging and ordered traversal can avoid work that would otherwise be necessary.
+
+Whether this trade-off is worthwhile depends on the workload.
+
+A collection searched only once may not justify sorting at all.
+
+A collection queried repeatedly may justify sorting once and reusing the resulting order.
+
+A read-heavy system may even justify maintaining ordered indexes continuously, shifting part of the cost from reads to writes.
+
+The engineering decision is therefore not simply whether ordering is useful, but when its cost should be paid.
+
+This demonstrates a broader engineering principle:
+
+> Optimization often consists of moving work from a frequently executed operation to a less frequent phase where its cost can be amortized.
+
+---
+
+### Implications
+
+When considering additional organization, avoid asking only:
+
+* Would ordered data make this operation faster?
+
+Instead ask:
+
+* What does creating the organization cost?
+* How often will the resulting structure be reused?
+* Which future operations become cheaper because of it?
+* How frequently does the underlying data change?
+* Should organization be created on demand or maintained continuously?
+* Is the system moving work from reads to writes, or from writes to reads?
+* Will the saved future work justify the additional computation and memory?
+
+This perspective extends beyond sorting to database indexes, caches, search indexes, precomputation, materialized views and many other systems that deliberately perform work in advance to reduce future cost.
+
+---
+
+### Related Concepts
+
+* Sorting
+* Ordering
+* Searching
+* Indexing
+* Amortization
+* Precomputation
+* Read/Write Trade-off
+* Workload
+* Time Complexity
+* Space Complexity
+
+------------------------------------------------------------------------------------------

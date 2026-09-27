@@ -720,20 +720,20 @@ The Capstone is not a new learning phase, but the integration and validation of 
 
 | Phase     | Status         | Started     | Completed | Last Updated |
 |-----------|----------------|-------------|-----------|--------------|
-| Phase 0   | 🟡 In Progress | 2026-07-07 |           |              |
-| Phase 1   | ⚪ Not Started |            |           |              |
-| Phase 2   | ⚪ Not Started |            |           |              |
-| Phase 3   | ⚪ Not Started |            |           |              |
-| Phase 4   | ⚪ Not Started |            |           |              |
-| Phase 5   | ⚪ Not Started |            |           |              |
-| Phase 6   | ⚪ Not Started |            |           |              |
-| Phase 7   | ⚪ Not Started |            |           |              |
-| Phase 8   | ⚪ Not Started |            |           |              |
-| Phase 9   | ⚪ Not Started |            |           |              |
-| Phase 10  | ⚪ Not Started |            |           |              |
-| Phase 11  | ⚪ Not Started |            |           |              |
-| Phase 12  | ⚪ Not Started |            |           |              |
-| Phase 13  | ⚪ Not Started |            |           |              |
+| Phase 0   | ✅ Completed   | 2026-07-07 | 2026-09-27 |              |
+| Phase 1   | ⚪ Not Started |            |            |              |
+| Phase 2   | ⚪ Not Started |            |            |              |
+| Phase 3   | ⚪ Not Started |            |            |              |
+| Phase 4   | ⚪ Not Started |            |            |              |
+| Phase 5   | ⚪ Not Started |            |            |              |
+| Phase 6   | ⚪ Not Started |            |            |              |
+| Phase 7   | ⚪ Not Started |            |            |              |
+| Phase 8   | ⚪ Not Started |            |            |              |
+| Phase 9   | ⚪ Not Started |            |            |              |
+| Phase 10  | ⚪ Not Started |            |            |              |
+| Phase 11  | ⚪ Not Started |            |            |              |
+| Phase 12  | ⚪ Not Started |            |            |              |
+| Phase 13  | ⚪ Not Started |            |            |              |
 
 ---
 
@@ -753,6 +753,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 | 0.4.9 Hash Tables              | ✅ Completed | 2026-08-04 | 2026-08-06 |
 | 0.4.10 Heaps                   | ✅ Completed | 2026-08-07 | 2026-08-09 |
 | 0.4.11 Searching               | ✅ Completed | 2026-09-24 | 2026-09-24 |
+| 0.4.12 Sorting                 | ✅ Completed | 2026-09-25 | 2026-09-27 |
 
 ---
 
