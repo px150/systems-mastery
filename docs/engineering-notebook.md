@@ -1201,3 +1201,97 @@ This perspective extends beyond sorting to database indexes, caches, search inde
 * Space Complexity
 
 ------------------------------------------------------------------------------------------
+
+## Representation Has No Meaning Without a Contract
+
+Context
+
+Module 1.1 — Binary Representation
+
+---
+
+### Observation
+
+A bit pattern does not intrinsically represent a number, character, flag, instruction or any other kind of information.
+
+The same physical bits can represent different values or concepts depending on the contract used to interpret them.
+
+---
+
+### Reasoning
+
+Bits provide distinguishable states, not meaning.
+
+Meaning emerges only when a system defines how those states should be interpreted.
+
+For example:
+
+```text
+1111 1111
+```
+
+can represent:
+
+```text
+255
+```
+
+as an unsigned 8-bit integer, or:
+
+```text
+-1
+```
+
+as an 8-bit two's complement integer.
+
+The physical representation is identical.
+
+Only the interpretation changes.
+
+The same principle extends beyond integers.
+
+Types, character encodings, file formats, network protocols and instruction set architectures all define contracts that assign meaning to binary patterns.
+
+Additional properties such as width, signedness and byte order further determine how a representation must be reconstructed.
+
+This demonstrates a broader engineering principle:
+
+> Data is not self-describing. Correct interpretation requires agreement about representation.
+
+---
+
+### Implications
+
+When working with data at a system boundary, avoid asking only:
+
+- What bits or bytes were received?
+
+Instead ask:
+
+- What contract defines their meaning?
+- What is the width of the representation?
+- Is the value signed or unsigned?
+- If it spans multiple bytes, what byte order is used?
+- Which encoding or format defines the structure?
+- Are both sides of the boundary using the same assumptions?
+- Am I reasoning about the stored representation, the language-level value or the abstract information being represented?
+
+This perspective extends naturally to network protocols, binary file formats, serialization, databases, operating systems, compilers and hardware interfaces, where perfectly preserved bits can still produce incorrect behavior when different components interpret them under different contracts.
+
+---
+
+### Related Concepts
+
+- Binary Representation
+- Bit Pattern
+- Interpretation
+- Representation Contract
+- Signedness
+- Two's Complement
+- Endianness
+- Encoding
+- Serialization
+- Instruction Set Architecture
+- System Boundary
+
+------------------------------------------------------------------------------------------

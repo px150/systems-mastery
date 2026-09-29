@@ -2411,3 +2411,496 @@ Stability is a property of the algorithm and its implementation rather than a co
 Module 0.4.12 — Sorting
 
 ---
+
+## Bit
+
+### Definition
+
+The smallest unit of binary information, capable of representing one of two distinguishable states conventionally written as `0` and `1`.
+
+### Purpose
+
+Provides the fundamental unit from which finite binary representations are constructed.
+
+### Systems Context
+
+A single bit provides two possible states. Combining `n` independent bits produces `2ⁿ` distinct patterns that can be interpreted as numbers, flags, characters, instructions or other forms of information.
+
+### Related Concepts
+
+- Byte
+- Bit Pattern
+- Binary Representation
+- Fixed-Width Representation
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Byte
+
+### Definition
+
+A group of eight bits treated as a unit of storage or data representation.
+
+### Purpose
+
+Provides the standard addressable unit from which larger machine representations are commonly constructed.
+
+### Systems Context
+
+A byte provides 256 distinct bit patterns. Multi-byte values distribute a logical representation across several bytes, making concepts such as byte significance and endianness relevant.
+
+### Related Concepts
+
+- Bit
+- Bit Pattern
+- Endianness
+- Most Significant Byte
+- Least Significant Byte
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Bit Pattern
+
+### Definition
+
+A particular arrangement of binary states across a fixed number of bit positions.
+
+### Purpose
+
+Represents one possible physical configuration that a system can interpret according to an agreed contract.
+
+### Systems Context
+
+A bit pattern has no intrinsic meaning. For example, `11111111` can represent `255` as an unsigned 8-bit integer, `-1` under 8-bit two's complement, a collection of flags or part of another encoded structure.
+
+### Related Concepts
+
+- Bit
+- Binary Representation
+- Representation Contract
+- Fixed-Width Representation
+- Two's Complement
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Fixed-Width Representation
+
+### Definition
+
+A representation constrained to a predetermined number of bits.
+
+### Purpose
+
+Defines the finite set of patterns available for representing information and therefore establishes representational boundaries.
+
+### Systems Context
+
+An `n`-bit representation provides exactly `2ⁿ` distinct patterns. Operations whose mathematical results require additional bits may therefore exceed the range representable within the original width.
+
+### Related Concepts
+
+- Bit Pattern
+- Unsigned Integer
+- Two's Complement
+- Overflow
+- Binary Representation
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Unsigned Integer
+
+### Definition
+
+An integer representation that uses its available bit patterns exclusively for non-negative values.
+
+### Purpose
+
+Provides the full finite bit-pattern space for representing zero and positive integer magnitudes.
+
+### Systems Context
+
+An unsigned `n`-bit integer represents values from `0` through `2ⁿ - 1`. Arithmetic stored back into the same finite width behaves modulo `2ⁿ`.
+
+### Related Concepts
+
+- Fixed-Width Representation
+- Two's Complement
+- Bit Pattern
+- Overflow
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Two's Complement
+
+### Definition
+
+A signed integer representation in which an `n`-bit pattern represents values from `-2ⁿ⁻¹` through `2ⁿ⁻¹ - 1`.
+
+### Purpose
+
+Provides a signed representation that allows positive and negative integer arithmetic to use the same underlying fixed-width binary operations.
+
+### Systems Context
+
+In two's complement, the most significant position has weight `-2ⁿ⁻¹` when the pattern is interpreted as signed. A negative pattern can also be interpreted by taking its unsigned value and subtracting `2ⁿ`.
+
+### Related Concepts
+
+- Unsigned Integer
+- Fixed-Width Representation
+- Bit Pattern
+- Most Significant Bit
+- Overflow
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Hexadecimal
+
+### Definition
+
+A base-16 positional notation using the digits `0–9` and `A–F`.
+
+### Purpose
+
+Provides a compact human-readable notation for binary patterns while preserving a direct correspondence with their bit structure.
+
+### Systems Context
+
+Because `16 = 2⁴`, every hexadecimal digit corresponds exactly to four bits. Hexadecimal is therefore widely used when inspecting addresses, machine values, binary formats, masks and other low-level representations.
+
+### Related Concepts
+
+- Bit Pattern
+- Binary Representation
+- Byte
+- Bit Mask
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Bitwise Operation
+
+### Definition
+
+An operation that manipulates corresponding individual bits within one or more binary patterns.
+
+### Purpose
+
+Allows selected parts of a representation to be inspected or modified without treating the complete pattern as a single numerical quantity.
+
+### Systems Context
+
+Operations such as AND, OR, XOR and NOT are commonly combined with bit masks to test, set, clear or toggle individual fields and flags.
+
+### Related Concepts
+
+- Bit
+- Bit Pattern
+- Bit Mask
+- Bit Shift
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Bit Mask
+
+### Definition
+
+A bit pattern used to select one or more positions within another binary representation.
+
+### Purpose
+
+Allows specific bits to be tested or modified while preserving unrelated positions.
+
+### Systems Context
+
+Masks are commonly combined with AND, OR, XOR and NOT to implement compact flags, permissions, hardware-register fields and other packed representations.
+
+### Related Concepts
+
+- Bitwise Operation
+- Bit Pattern
+- Bit Shift
+- Representation Contract
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Bit Shift
+
+### Definition
+
+An operation that moves the bits of a pattern left or right by a specified number of positions.
+
+### Purpose
+
+Provides direct manipulation of positional binary structure and enables efficient construction of masks and extraction of bit fields.
+
+### Systems Context
+
+For unsigned values, shifting left by one corresponds to multiplication by two when significant bits are not lost, while shifting right by one corresponds to integer division by two. Shifts are also commonly used to construct masks such as `1 << n`.
+
+### Related Concepts
+
+- Bitwise Operation
+- Bit Mask
+- Bit Pattern
+- Fixed-Width Representation
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Endianness
+
+### Definition
+
+The convention determining the order in which the bytes of a multi-byte representation are arranged in memory or transmitted.
+
+### Purpose
+
+Defines how independently stored bytes must be combined to reconstruct a multi-byte value.
+
+### Systems Context
+
+Little-endian places the least significant byte at the lower address, while big-endian places the most significant byte there. Endianness changes byte ordering, not the ordering of bits within each byte or the logical value itself.
+
+### Related Concepts
+
+- Byte
+- Most Significant Byte
+- Least Significant Byte
+- Representation Contract
+- Binary Representation
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Most Significant Byte
+
+### Definition
+
+The byte within a multi-byte numerical representation containing the highest positional weights.
+
+### Purpose
+
+Identifies the portion of a multi-byte value contributing most strongly to its numerical magnitude.
+
+### Systems Context
+
+The location of the most significant byte in memory depends on endianness. In big-endian representations it appears at the lower address, while in little-endian representations it appears at the higher address.
+
+### Related Concepts
+
+- Byte
+- Least Significant Byte
+- Endianness
+- Binary Representation
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Least Significant Byte
+
+### Definition
+
+The byte within a multi-byte numerical representation containing the lowest positional weights.
+
+### Purpose
+
+Identifies the portion of a multi-byte value representing its lowest-order binary positions.
+
+### Systems Context
+
+The location of the least significant byte in memory depends on endianness. In little-endian representations it appears at the lower address, while in big-endian representations it appears at the higher address.
+
+### Related Concepts
+
+- Byte
+- Most Significant Byte
+- Endianness
+- Binary Representation
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Representation Contract
+
+### Definition
+
+The set of rules and assumptions that determines how a bit pattern must be interpreted.
+
+### Purpose
+
+Provides the context required to transform raw binary states into meaningful information.
+
+### Systems Context
+
+The same physical bits can represent different information depending on properties such as width, signedness, byte order, encoding or instruction format. Programming-language types, network protocols, file formats, character encodings and instruction set architectures all establish representation contracts.
+
+### Related Concepts
+
+- Bit Pattern
+- Fixed-Width Representation
+- Endianness
+- Two's Complement
+- Encoding
+- Interface
+- Assumption
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Binary Representation
+
+### Definition
+
+The encoding of information using patterns of binary states.
+
+### Purpose
+
+Provides the fundamental representation through which digital systems can store, transmit and manipulate information.
+
+### Systems Context
+
+Binary representation separates the physical pattern of bits from the meaning assigned to that pattern. A sequence of bits becomes meaningful only when interpreted according to a contract such as an integer format, character encoding, file format, network protocol or instruction set.
+
+### Related Concepts
+
+- Bit
+- Byte
+- Bit Pattern
+- Fixed-Width Representation
+- Representation Contract
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Most Significant Bit
+
+### Definition
+
+The bit occupying the highest-order position in a binary representation.
+
+### Purpose
+
+Identifies the bit associated with the greatest positional weight in the representation.
+
+### Systems Context
+
+In an unsigned `n`-bit integer, the most significant bit has weight `2ⁿ⁻¹`.
+
+In an `n`-bit two's complement integer, the most significant position contributes weight `-2ⁿ⁻¹`.
+
+The meaning of the most significant bit therefore depends on the representation contract rather than the bit having an intrinsic meaning as a sign indicator.
+
+### Related Concepts
+
+- Bit
+- Bit Pattern
+- Unsigned Integer
+- Two's Complement
+- Fixed-Width Representation
+- Most Significant Byte
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
+
+## Overflow
+
+### Definition
+
+A condition in which a mathematical result lies outside the range representable by the available fixed-width representation.
+
+### Purpose
+
+Describes the boundary between mathematical operations and the finite set of values that a particular representation can encode.
+
+### Systems Context
+
+An `n`-bit representation contains only `2ⁿ` possible patterns.
+
+For example, an unsigned 8-bit integer can represent values from `0` through `255`, so the mathematical result:
+
+```text
+255 + 1 = 256
+```
+
+cannot be represented within the same width.
+
+For fixed-width unsigned arithmetic, the resulting representation behaves modulo `2ⁿ`:
+
+```text
+1111 1111 + 1
+→
+0000 0000
+```
+
+Signed overflow must be distinguished from unsigned wrap-around, and programming languages may define different semantics for operations whose mathematical results exceed their representable range.
+
+### Related Concepts
+
+- Fixed-Width Representation
+- Unsigned Integer
+- Two's Complement
+- Bit Pattern
+- Binary Representation
+
+### Introduced In
+
+Module 1.1 — Binary Representation
+
+---
