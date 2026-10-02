@@ -755,6 +755,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 | 0.4.11 Searching               | ✅ Completed | 2026-09-24 | 2026-09-24 |
 | 0.4.12 Sorting                 | ✅ Completed | 2026-09-25 | 2026-09-27 |
 | 1.1 Binary Representation      | ✅ Completed | 2026-09-28 | 2026-09-29 |
+| 1.2 CPU Architecture           | ✅ Completed | 2026-09-30 | 2026-10-02 |
 
 ---
 

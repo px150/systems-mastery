@@ -2904,3 +2904,395 @@ Signed overflow must be distinguished from unsigned wrap-around, and programming
 Module 1.1 — Binary Representation
 
 ---
+
+## Register
+
+### Definition
+
+A small storage location exposed by a processor architecture for holding values involved in execution.
+
+### Purpose
+
+Provides directly accessible architectural state for operands, intermediate results, addresses and other values required during computation.
+
+### Systems Context
+
+Registers form part of the architectural state visible to software. Instructions read and modify registers according to rules defined by the Instruction Set Architecture.
+
+### Related Concepts
+
+- Architectural State
+- Instruction
+- Register Width
+- Program Counter
+- Stack Pointer
+- Instruction Set Architecture
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Register Width
+
+### Definition
+
+The number of bits available in a register or register view.
+
+### Purpose
+
+Determines the number of distinct bit patterns that the register can represent at a given width.
+
+### Systems Context
+
+Processor architectures may expose registers or operations of multiple widths. A 64-bit architecture does not imply that every register operation or software value must use 64 bits.
+
+### Related Concepts
+
+- Register
+- Fixed-Width Representation
+- Bit Pattern
+- Instruction Set Architecture
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Arithmetic Logic Unit
+
+### Definition
+
+A processor component that performs arithmetic and logical operations on binary values.
+
+### Purpose
+
+Provides hardware for transformations such as addition, subtraction, comparisons, bitwise operations and shifts.
+
+### Systems Context
+
+The ALU participates in instruction execution but does not independently determine which instruction should execute. Its operation is coordinated with registers and other processor components.
+
+### Related Concepts
+
+- Register
+- Instruction
+- Control Unit
+- Architectural State
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Program Counter
+
+### Definition
+
+Architectural state identifying the location associated with the next instruction in the execution flow.
+
+### Purpose
+
+Allows the processor to progress through an instruction sequence and redirect execution when control flow changes.
+
+### Systems Context
+
+Sequential execution advances the Program Counter through the instruction stream, while jumps, branches, calls and returns can replace its value with another instruction location.
+
+### Related Concepts
+
+- Architectural State
+- Instruction
+- Control Flow
+- Condition Flag
+- Instruction Set Architecture
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Condition Flag
+
+### Definition
+
+A piece of architectural state recording a condition produced by an operation.
+
+### Purpose
+
+Allows later instructions to make decisions based on properties of previous computations.
+
+### Systems Context
+
+Flags may represent conditions such as zero, negative, carry or overflow depending on the ISA. Conditional branches can inspect these flags and alter the Program Counter accordingly.
+
+### Related Concepts
+
+- Architectural State
+- Program Counter
+- Control Flow
+- Instruction
+- Instruction Set Architecture
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Machine Instruction
+
+### Definition
+
+An ISA-defined operation encoded as a machine-readable bit pattern.
+
+### Purpose
+
+Specifies a transformation that a compatible processor can perform on architectural state.
+
+### Systems Context
+
+An instruction may read registers, modify registers or flags, access memory or change control flow. The meaning of its encoded bits is determined by the Instruction Set Architecture.
+
+### Related Concepts
+
+- Opcode
+- Operand
+- Architectural State
+- Bit Pattern
+- Instruction Set Architecture
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Opcode
+
+### Definition
+
+The part of a machine instruction that identifies the operation to be performed.
+
+### Purpose
+
+Distinguishes operations such as arithmetic, logical, data-movement and control-flow instructions.
+
+### Systems Context
+
+An opcode gains meaning through the Instruction Set Architecture and is interpreted together with any operands required by the instruction.
+
+### Related Concepts
+
+- Machine Instruction
+- Operand
+- Instruction Set Architecture
+- Bit Pattern
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Operand
+
+### Definition
+
+A value or architectural location used as an input or destination by an instruction.
+
+### Purpose
+
+Identifies the data or state on which an instruction operates.
+
+### Systems Context
+
+Operands may refer to registers, immediate values, memory locations or other forms defined by an ISA.
+
+### Related Concepts
+
+- Machine Instruction
+- Opcode
+- Register
+- Memory Address
+- Instruction Set Architecture
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Control Flow
+
+### Definition
+
+The sequence in which instructions are selected for execution.
+
+### Purpose
+
+Allows execution to proceed sequentially or change direction according to program structure and runtime conditions.
+
+### Systems Context
+
+At the architectural level, control flow is governed primarily through changes to the Program Counter. Branches, loops, function calls and returns ultimately alter which instruction executes next.
+
+### Related Concepts
+
+- Program Counter
+- Condition Flag
+- Machine Instruction
+- Architectural State
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Control Unit
+
+### Definition
+
+Processor hardware responsible for coordinating the components involved in instruction execution.
+
+### Purpose
+
+Coordinates operations involving registers, execution units, control-flow state and other processor resources according to the instruction being executed.
+
+### Systems Context
+
+The Control Unit is part of the processor implementation. It should not be confused with a compiler, which translates source code into machine instructions before execution.
+
+### Related Concepts
+
+- Machine Instruction
+- Arithmetic Logic Unit
+- Register
+- Program Counter
+- Instruction Set Architecture
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Instruction Set Architecture
+
+### Definition
+
+The software-visible contract defining the machine model implemented by a processor architecture.
+
+### Purpose
+
+Defines how machine code interacts with the processor independently of a particular internal hardware implementation.
+
+### Systems Context
+
+An ISA defines concepts such as machine instructions, their semantics and encodings, architectural registers, operand forms, control-flow behavior and other visible processor state. Different processors can implement the same ISA using different microarchitectures.
+
+### Related Concepts
+
+- Machine Instruction
+- Architectural State
+- Register
+- Program Counter
+- Microarchitecture
+- Representation Contract
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Microarchitecture
+
+### Definition
+
+The internal hardware organization used by a particular processor design to implement an Instruction Set Architecture.
+
+### Purpose
+
+Realizes the behavior required by the ISA using a concrete processor implementation.
+
+### Systems Context
+
+Processors implementing the same ISA may use different pipelines, execution structures, caches and other internal mechanisms while remaining compatible with the same machine code.
+
+### Related Concepts
+
+- Instruction Set Architecture
+- Architectural State
+- Arithmetic Logic Unit
+- Control Unit
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Architectural State
+
+### Definition
+
+The collection of processor state exposed through the Instruction Set Architecture that describes the current execution state of a program.
+
+### Purpose
+
+Provides the software-visible state that instructions observe and transform during execution.
+
+### Systems Context
+
+Architectural state can include general-purpose registers, the Program Counter, Stack Pointer, condition flags and other ISA-visible state. Program execution can be modeled as a sequence of transformations from one architectural state to another.
+
+### Related Concepts
+
+- State
+- Register
+- Program Counter
+- Stack Pointer
+- Condition Flag
+- Machine Instruction
+- Instruction Set Architecture
+- Microarchitecture
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---
+
+## Stack Pointer
+
+### Definition
+
+Architectural state identifying the current position of the execution stack.
+
+### Purpose
+
+Allows stack-based data such as saved values and function-call state to be located and managed.
+
+### Systems Context
+
+Function calls, returns and explicit stack operations may modify the Stack Pointer. The exact register and stack-growth rules depend on the ISA and execution environment.
+
+### Related Concepts
+
+- Register
+- Architectural State
+- Stack
+- Program Counter
+- Machine Instruction
+
+### Introduced In
+
+Module 1.2 — CPU Architecture
+
+---

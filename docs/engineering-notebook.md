@@ -1295,3 +1295,78 @@ This perspective extends naturally to network protocols, binary file formats, se
 - System Boundary
 
 ------------------------------------------------------------------------------------------
+
+## Execution Is the Transformation of Architectural State
+
+Context
+
+Module 1.2 — CPU Architecture
+
+---
+
+### Observation
+
+A CPU can be understood as a machine that repeatedly transforms architectural state according to instructions.
+
+Registers, the Program Counter, the Stack Pointer and condition flags collectively describe the software-visible state of an executing program.
+
+An instruction reads part of this state, modifies some of it and leaves the rest unchanged.
+
+---
+
+### Reasoning
+
+Machine instructions are not isolated commands that simply "perform operations."
+
+Each instruction defines a transition from one valid architectural state to another.
+
+Arithmetic instructions may modify registers and flags.
+
+Memory instructions may transfer information between registers and memory.
+
+Branches modify the Program Counter, changing which instruction participates in the next state transition.
+
+Function calls and returns additionally preserve and restore control-flow state.
+
+The Instruction Set Architecture defines the contract governing these transformations, while different microarchitectures may realize the same transitions using completely different internal mechanisms.
+
+This creates a stable abstraction boundary:
+
+> Software depends on architectural behavior, not on the processor's internal implementation.
+
+---
+
+### Implications
+
+When reasoning about machine-level execution, avoid asking only:
+
+- What does this instruction do?
+
+Instead ask:
+
+- What is the current architectural state?
+- Which parts of that state does the instruction read?
+- Which parts does it modify?
+- Which parts remain unchanged?
+- How does the Program Counter change?
+- Is the observed behavior defined by the ISA or merely by a particular microarchitecture?
+- Which state would need to be preserved for execution to continue correctly later?
+
+This perspective connects computation, machine code, context switching, function calls and processor compatibility through the same underlying model of state transformation.
+
+---
+
+### Related Concepts
+
+- Architectural State
+- State Transition
+- Register
+- Program Counter
+- Stack Pointer
+- Condition Flags
+- Instruction
+- Instruction Set Architecture
+- Microarchitecture
+- Control Flow
+
+------------------------------------------------------------------------------------------
