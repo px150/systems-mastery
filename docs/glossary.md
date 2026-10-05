@@ -3296,3 +3296,336 @@ Function calls, returns and explicit stack operations may modify the Stack Point
 Module 1.2 — CPU Architecture
 
 ---
+
+## Memory Hierarchy
+
+Definition
+
+An organization of storage into multiple levels with different trade-offs between speed, capacity, cost and persistence.
+
+Purpose
+
+Allows systems to combine small fast storage near computation with progressively larger and slower storage levels.
+
+Systems Context
+
+Modern systems use a hierarchy including registers, caches, RAM and persistent storage. Data movement through this hierarchy strongly influences real execution performance.
+
+Related Concepts
+
+- Cache
+- Latency
+- Bandwidth
+- Working Set
+- Memory Locality
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---
+
+## Cache
+
+Definition
+
+A relatively small and fast storage layer that keeps recently or predictably useful data closer to the processor.
+
+Purpose
+
+Reduces the effective cost of memory access by exploiting locality in program behavior.
+
+Systems Context
+
+Processor caches are primarily microarchitectural mechanisms and commonly form multiple levels such as L1, L2 and L3 between registers and main memory.
+
+Related Concepts
+
+- Memory Hierarchy
+- Cache Line
+- Cache Hit
+- Cache Miss
+- Temporal Locality
+- Spatial Locality
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---
+
+## Cache Line
+
+Definition
+
+A fixed-size contiguous block of memory transferred and managed as a unit by a cache.
+
+Purpose
+
+Exploits spatial locality by bringing nearby data into cache together with the requested data.
+
+Systems Context
+
+Sequential access can make efficient use of cache lines because multiple nearby elements may be served by a single transferred block. Cache-line size is a microarchitectural property rather than a universal constant.
+
+Related Concepts
+
+- Cache
+- Spatial Locality
+- Sequential Access
+- Cache Hit
+- Cache Miss
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---
+
+## Cache Hit
+
+Definition
+
+A memory access in which the requested data is already present in the cache level being checked.
+
+Purpose
+
+Allows an access to be satisfied without retrieving the data from a slower level of the memory hierarchy.
+
+Systems Context
+
+Programs with strong locality can produce more cache hits and therefore reduce the effective cost of memory access.
+
+Related Concepts
+
+- Cache
+- Cache Miss
+- Cache Line
+- Memory Hierarchy
+- Memory Locality
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---
+
+## Cache Miss
+
+Definition
+
+A memory access in which the requested data is not present in the cache level being checked.
+
+Purpose
+
+Identifies when the processor must continue searching lower levels of the memory hierarchy.
+
+Systems Context
+
+Cache misses may require accessing another cache level or eventually main memory, increasing the cost of the operation.
+
+Related Concepts
+
+- Cache
+- Cache Hit
+- Cache Line
+- Memory Hierarchy
+- Latency
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---
+
+## Temporal Locality
+
+Definition
+
+The tendency for recently accessed data to be accessed again in the near future.
+
+Purpose
+
+Explains why retaining recently used data near the processor can reduce repeated memory-access costs.
+
+Systems Context
+
+Caches exploit temporal locality by keeping recently accessed data available for possible reuse.
+
+Related Concepts
+
+- Cache
+- Spatial Locality
+- Memory Locality
+- Working Set
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---
+
+## Spatial Locality
+
+Definition
+
+The tendency for memory locations near a recently accessed location to be accessed in the near future.
+
+Purpose
+
+Explains why transferring contiguous blocks of memory can make subsequent nearby accesses cheaper.
+
+Systems Context
+
+Arrays and sequential traversal naturally exhibit spatial locality, allowing multiple useful elements to be obtained from the same cache line.
+
+Related Concepts
+
+- Cache Line
+- Temporal Locality
+- Contiguous Memory
+- Sequential Access
+- Memory Locality
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---
+
+## Working Set
+
+Definition
+
+The portion of a program's data that is actively and repeatedly used during a period of execution.
+
+Purpose
+
+Provides a more useful model of cache pressure than total allocated memory alone.
+
+Systems Context
+
+A program may allocate a large amount of memory while repeatedly operating on a much smaller working set. Performance can change when the active working set exceeds the capacity of nearby cache levels.
+
+Related Concepts
+
+- Cache
+- Memory Hierarchy
+- Temporal Locality
+- Memory Locality
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---
+
+## Latency
+
+Definition
+
+The delay between initiating an operation and obtaining its result.
+
+Purpose
+
+Describes the waiting cost associated with accessing a resource.
+
+Systems Context
+
+Memory-access latency generally increases when data must be retrieved from progressively farther levels of the memory hierarchy. Latency is distinct from how much data can be transferred per unit of time.
+
+Related Concepts
+
+- Bandwidth
+- Memory Hierarchy
+- Cache Miss
+- Bottleneck
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---
+
+## Bandwidth
+
+Definition
+
+The amount of data that can be transferred per unit of time.
+
+Purpose
+
+Describes the transfer capacity of a communication or storage path independently of the initial delay before data becomes available.
+
+Systems Context
+
+Bandwidth becomes particularly important for large sequential transfers, where access latency can be amortized across a large amount of data.
+
+Related Concepts
+
+- Latency
+- Memory Hierarchy
+- Sequential Access
+- Bottleneck
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---
+
+## Prefetching
+
+Definition
+
+The process of retrieving data before it is explicitly requested because the system predicts that it will soon be needed.
+
+Purpose
+
+Attempts to hide memory-access costs by moving useful data closer to computation in advance.
+
+Systems Context
+
+Predictable access patterns such as sequential array traversal are easier for hardware to prefetch than dependent and irregular memory accesses.
+
+Related Concepts
+
+- Cache
+- Spatial Locality
+- Sequential Access
+- Memory Locality
+- Pointer Chasing
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---
+
+## Pointer Chasing
+
+Definition
+
+A memory-access pattern in which the address of the next object depends on a pointer obtained from the current object.
+
+Purpose
+
+Describes the dependent traversal behavior common in linked data structures.
+
+Systems Context
+
+Pointer chasing can reduce spatial locality and make future addresses difficult to predict or prefetch because each next access may depend on the completion of the previous one.
+
+Related Concepts
+
+- Linked Structure
+- Traversal
+- Memory Locality
+- Prefetching
+- Latency
+
+Introduced In
+
+Module 1.3 — Memory Hierarchy
+
+---

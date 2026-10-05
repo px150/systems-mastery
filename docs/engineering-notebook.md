@@ -1370,3 +1370,94 @@ This perspective connects computation, machine code, context switching, function
 - Control Flow
 
 ------------------------------------------------------------------------------------------
+
+## Memory hierarchy experiments
+
+### Cache topology observed
+
+On the test machine:
+
+```text
+L1d cache: 480 KiB (10 instances) → ~48 KiB per instance
+L1i cache: 320 KiB (10 instances)
+L2 cache: 12.5 MiB (10 instances)  → ~1.25 MiB per instance
+L3 cache: 24 MiB (1 instance)
+```
+
+Observed L1 data-cache line size:
+
+```text
+64 bytes
+```
+
+With 4-byte `int` values, one cache line can therefore contain 16 contiguous integers.
+
+These values are machine-specific observations, not architectural guarantees.
+
+### Sequential vs strided memory access
+
+A C benchmark compared sequential traversal with a stride of 16 integers (64 bytes, equal to the observed cache-line size).
+
+Observed:
+
+```text
+Sequential: 0.33 ns/access
+Stride 16:  2.71 ns/access
+```
+
+The strided pattern was approximately 8× more expensive per useful access.
+
+**Lesson:** algorithmic complexity alone does not describe execution cost. Data layout and access patterns determine how effectively cache lines, spatial locality, and hardware prefetching can be exploited.
+
+### Working-set experiment
+
+Repeated sequential traversal was measured across different working-set sizes while keeping the total amount of data read approximately constant.
+
+Observed:
+
+```text
+16 KiB : 0.23 ns/access
+256 KiB: 0.23 ns/access
+2 MiB  : 0.24 ns/access
+32 MiB : 0.31 ns/access
+100 MiB: 0.33 ns/access
+```
+
+Performance remained similar for the smaller working sets and became measurably more expensive once the active data grew beyond the larger cache capacities.
+
+The results did **not** show clean timing steps corresponding exactly to L1, L2, L3, and RAM.
+
+**Lesson:** cache capacity provides a useful mental model, but real performance also depends on prefetching, bandwidth, memory-level parallelism, compiler optimization, cache organization, and other microarchitectural effects.
+
+Benchmark `ns/access` values must therefore not be interpreted as direct measurements of individual cache or RAM latency.
+
+### Engineering takeaway
+
+When investigating memory-sensitive performance, reason in terms of:
+
+```text
+data layout
++
+access pattern
++
+working-set size
++
+locality
++
+memory hierarchy
+```
+
+rather than Big-O complexity alone.
+
+Use the cycle:
+
+```text
+prediction
+→ experiment
+→ observation
+→ explanation
+```
+
+and distinguish general architectural principles from measurements that are specific to the tested machine.
+
+------------------------------------------------------------------------------------------
