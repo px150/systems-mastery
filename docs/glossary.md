@@ -3714,3 +3714,324 @@ A function call must preserve a return address before transferring control. Depe
 Module 1.4 — Instruction Execution
 
 ---
+
+## Throughput
+
+**Definition**
+
+The amount of useful work completed per unit of time.
+
+**Purpose**
+
+Distinguishes the rate of completed operations from the latency of an individual operation.
+
+**Systems Context**
+
+A processor may sustain high throughput by overlapping independent operations even when each operation takes several cycles to complete.
+
+**Related Concepts**
+
+* Latency
+* Instruction-Level Parallelism
+* Pipeline
+* IPC
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+## Instruction Dependency
+
+**Definition**
+
+A constraint requiring an instruction to wait for a result or effect of another instruction before it can safely make progress.
+
+**Purpose**
+
+Explains why some instructions cannot execute independently and why dependency chains can limit performance.
+
+**Systems Context**
+
+A sequence of arithmetic instructions in which every result feeds the next limits available overlap, even on a processor capable of executing multiple instructions simultaneously.
+
+**Related Concepts**
+
+* Instruction-Level Parallelism
+* Pipeline Stall
+* Out-of-Order Execution
+* Latency
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+## Instruction-Level Parallelism (ILP)
+
+**Definition**
+
+The opportunity to overlap execution of multiple instructions whose dependencies permit independent progress.
+
+**Purpose**
+
+Explains why instruction count alone does not determine execution time.
+
+**Systems Context**
+
+Independent arithmetic chains may be processed concurrently by a suitable microarchitecture, while a single dependency chain constrains progress. Available parallelism does not guarantee that hardware can exploit all of it.
+
+**Related Concepts**
+
+* Instruction Dependency
+* Superscalar Execution
+* Out-of-Order Execution
+* Throughput
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+## Pipeline
+
+**Definition**
+
+An organization of instruction processing into overlapping stages so that different instructions can be in progress at the same time.
+
+**Purpose**
+
+Improves potential instruction throughput without necessarily reducing the latency of an individual instruction.
+
+**Systems Context**
+
+A pipelined processor can begin processing another instruction while an earlier instruction advances through later stages. Actual stages and behavior vary by microarchitecture.
+
+**Related Concepts**
+
+* Throughput
+* Latency
+* Pipeline Stall
+* Instruction-Level Parallelism
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+## Pipeline Stall
+
+**Definition**
+
+A delay in instruction processing caused by an unavailable dependency, required resource or resolved control-flow decision.
+
+**Purpose**
+
+Identifies situations where the processor cannot maintain its potential rate of useful progress.
+
+**Systems Context**
+
+A dependent instruction may be delayed while a load waits for memory data; other independent instructions may still make progress if the microarchitecture permits it.
+
+**Related Concepts**
+
+* Pipeline
+* Instruction Dependency
+* Cache Miss
+* Branch Prediction
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+## Branch Prediction
+
+**Definition**
+
+A microarchitectural mechanism that predicts the outcome or destination of control-flow instructions before the actual result is known.
+
+**Purpose**
+
+Allows instruction processing to continue speculatively rather than always waiting for a branch to resolve.
+
+**Systems Context**
+
+Correct predictions can preserve useful execution progress; incorrect predictions require wrong-path speculative work to be discarded.
+
+**Related Concepts**
+
+* Branch Misprediction
+* Pipeline
+* Throughput
+* Instruction Execution
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+## Branch Misprediction
+
+**Definition**
+
+A situation in which a processor's predicted control-flow path differs from the path required by the resolved branch.
+
+**Purpose**
+
+Explains one source of lost execution work and reduced instruction throughput.
+
+**Systems Context**
+
+The processor must discard incorrect speculative work and resume along the correct path. The performance penalty depends on the workload and microarchitecture.
+
+**Related Concepts**
+
+* Branch Prediction
+* Pipeline Stall
+* Throughput
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+## Superscalar Execution
+
+**Definition**
+
+A processor capability to issue more than one instruction for execution during a clock cycle when dependencies and resources permit.
+
+**Purpose**
+
+Explains how suitable workloads can achieve instruction throughput above one instruction per cycle.
+
+**Systems Context**
+
+Superscalar capacity alone does not guarantee higher performance: instruction dependencies, resource availability, memory accesses and branches can limit utilization.
+
+**Related Concepts**
+
+* Instruction-Level Parallelism
+* IPC
+* Pipeline
+* Out-of-Order Execution
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+## Out-of-Order Execution
+
+**Definition**
+
+A microarchitectural technique that permits instructions to execute internally in an order different from program order while preserving required architectural behavior.
+
+**Purpose**
+
+Allows independent instructions to make progress when earlier instructions are delayed by dependencies or unavailable data.
+
+**Systems Context**
+
+An independent arithmetic instruction may execute while an earlier memory load is pending, provided architectural correctness and required memory ordering are preserved.
+
+**Related Concepts**
+
+* Instruction Dependency
+* Instruction-Level Parallelism
+* Superscalar Execution
+* Instruction Set Architecture
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+## Cycles Per Instruction (CPI)
+
+**Definition**
+
+The average number of processor clock cycles per retired instruction over a measured execution interval.
+
+**Purpose**
+
+Summarizes how many cycles a particular instruction stream requires on average.
+
+**Systems Context**
+
+CPI varies with the workload, generated instructions and microarchitecture. A lower CPI does not by itself guarantee lower execution time when instruction count or clock frequency also differs.
+
+**Related Concepts**
+
+* Instructions Per Cycle (IPC)
+* Throughput
+* Instruction Dependency
+* Clock Frequency
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+## Instructions Per Cycle (IPC)
+
+**Definition**
+
+The average number of instructions retired per processor clock cycle over a measured execution interval.
+
+**Purpose**
+
+Describes observed instruction completion rate relative to processor cycles.
+
+**Systems Context**
+
+IPC can exceed one on suitable processors and workloads, but depends on instruction mix, dependencies, memory behavior and control flow. For the same instruction stream and interval, IPC is the reciprocal of CPI.
+
+**Related Concepts**
+
+* Cycles Per Instruction (CPI)
+* Superscalar Execution
+* Instruction-Level Parallelism
+* Throughput
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+## Profiling
+
+**Definition**
+
+The measurement and analysis of where a program spends execution time or consumes computational resources.
+
+**Purpose**
+
+Identifies performance-critical behavior and guides optimization toward measured bottlenecks rather than assumptions.
+
+**Systems Context**
+
+Profiling representative workloads helps engineers prioritize changes and evaluate their impact. Profiles show observed costs; further evidence may be required to establish their underlying causes.
+
+**Related Concepts**
+
+* Bottleneck
+* Throughput
+* Latency
+* Benchmarking
+
+**Introduced In**
+
+Module 1.5 — Performance Fundamentals

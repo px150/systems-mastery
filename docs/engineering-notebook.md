@@ -1533,3 +1533,95 @@ This perspective extends naturally to debugging, compilers, performance analysis
 - Memory Hierarchy
 
 ------------------------------------------------------------------------------------------
+
+## Performance Emerges from Constraints on Useful Progress
+
+**Context**
+
+Module 1.5 — Performance Fundamentals
+
+---
+
+### Observation
+
+Executing fewer instructions does not necessarily make a program faster.
+
+Execution time depends not only on the amount of work performed, but also on dependencies, data availability, control flow and the processor's ability to overlap independent operations.
+
+Two computations performing the same number of arithmetic operations can therefore exhibit significantly different execution times.
+
+---
+
+### Reasoning
+
+Instruction dependencies constrain how much work can progress simultaneously.
+
+A long dependency chain forces each operation to wait for the previous result, while independent operations provide opportunities for instruction-level parallelism.
+
+Modern microarchitectures may exploit these opportunities through pipelining, superscalar execution and out-of-order execution.
+
+The Performance Fundamentals benchmark demonstrated this distinction.
+
+Two implementations performed 400 million arithmetic updates:
+
+- One maintained a single dependency chain.
+- The other distributed the work across four independent chains.
+
+After controlling the arithmetic instruction count and loop iterations, the independent version achieved approximately 3.78 times better execution time.
+
+The measurements strongly supported the dependency-based explanation, although remaining differences in generated machine code prevented attributing the entire improvement exclusively to instruction-level parallelism.
+
+The experiment also demonstrated that compiler optimizations can change the actual machine instructions being measured.
+
+This establishes a broader engineering principle:
+
+> Performance is determined not only by how much work must be performed, but also by what prevents that work from progressing efficiently.
+
+Measurement establishes what happened. Explaining why requires evidence about the workload, generated instructions and execution environment.
+
+---
+
+### Implications
+
+When investigating performance, avoid asking only:
+
+- How many instructions does this program execute?
+- How fast is the processor?
+
+Instead ask:
+
+- What work is actually being measured?
+- Which dependencies constrain progress?
+- Which operations can overlap?
+- Is execution limited by computation, memory latency or bandwidth?
+- Did the compiler change the intended workload?
+- What evidence identifies the actual bottleneck?
+- Does the proposed optimization improve end-to-end performance?
+
+Begin with representative measurements and profiling rather than assuming where the bottleneck lies.
+
+Form a hypothesis, change one relevant factor, repeat the measurements and verify that correctness is preserved.
+
+This perspective connects algorithmic complexity, memory organization, compiler behavior and microarchitecture into a unified approach to performance engineering.
+
+---
+
+### Related Concepts
+
+* Latency
+* Throughput
+* Instruction-Level Parallelism
+* Instruction Dependency
+* Pipeline
+* Out-of-Order Execution
+* CPI
+* IPC
+* Memory Hierarchy
+* Bottleneck
+* Benchmarking
+* Profiling
+* Compiler Optimization
+* Amdahl's Law
+* Performance Trade-off
+
+------------------------------------------------------------------------------------------
