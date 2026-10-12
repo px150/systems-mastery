@@ -3629,3 +3629,88 @@ Introduced In
 Module 1.3 — Memory Hierarchy
 
 ---
+
+## Instruction Decoding
+
+### Definition
+
+The conceptual process of interpreting an encoded machine instruction according to the Instruction Set Architecture in order to determine the operation and operand information it represents.
+
+### Purpose
+
+Transforms instruction bits into the architectural meaning required for execution.
+
+### Systems Context
+
+Instruction bytes do not have useful machine-operation meaning by themselves. Their encoding is interpreted according to the ISA, allowing the processor to identify the requested operation, operand forms and other execution information.
+
+### Related Concepts
+
+- Machine Instruction
+- Opcode
+- Operand
+- Instruction Set Architecture
+- Instruction Execution
+
+### Introduced In
+
+Module 1.4 — Instruction Execution
+
+---
+
+## Immediate Operand
+
+### Definition
+
+An operand whose value is encoded directly within a machine instruction rather than obtained from a register or separate memory location.
+
+### Purpose
+
+Allows an instruction to operate on a constant value without first retrieving that value from another architectural location.
+
+### Systems Context
+
+Instructions may use register operands, immediate operands or memory operands depending on the forms defined by the ISA. An immediate value becomes available as part of interpreting the instruction encoding itself.
+
+### Related Concepts
+
+- Operand
+- Machine Instruction
+- Register
+- Memory Address
+- Instruction Set Architecture
+
+### Introduced In
+
+Module 1.4 — Instruction Execution
+
+---
+
+## Return Address
+
+### Definition
+
+The instruction location at which execution should resume after a called function or control-flow region completes.
+
+### Purpose
+
+Allows temporary control transfer to another instruction sequence while preserving enough information to later resume the original execution flow.
+
+### Systems Context
+
+A function call must preserve a return address before transferring control. Depending on the ISA and execution environment, the return address may be stored in a register or on the stack. A return operation restores control flow using that preserved address.
+
+### Related Concepts
+
+- Program Counter
+- Control Flow
+- Stack
+- Stack Pointer
+- Machine Instruction
+- Architectural State
+
+### Introduced In
+
+Module 1.4 — Instruction Execution
+
+---

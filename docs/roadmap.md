@@ -757,6 +757,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 | 1.1 Binary Representation      | ✅ Completed | 2026-09-28 | 2026-09-29 |
 | 1.2 CPU Architecture           | ✅ Completed | 2026-09-30 | 2026-10-02 |
 | 1.3 Memory Hierarchy           | ✅ Completed | 2026-10-03 | 2026-10-05 |
+| 1.4 Instruction Execution      | ✅ Completed | 2026-10-06 | 2026-10-07 |
 
 ---
 

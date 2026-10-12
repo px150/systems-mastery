@@ -1461,3 +1461,75 @@ prediction
 and distinguish general architectural principles from measurements that are specific to the tested machine.
 
 ------------------------------------------------------------------------------------------
+
+## Instruction Execution Is a Chain of Information Dependencies
+
+Context
+
+Module 1.4 — Instruction Execution
+
+---
+
+### Observation
+
+An instruction cannot transform architectural state merely because its address is known.
+
+Before the transformation can occur, the processor must obtain the instruction encoding, interpret it according to the ISA, identify the required operands, make those operands available, perform the required operation, and determine which instruction should execute next.
+
+---
+
+### Reasoning
+
+The Program Counter identifies where the next instruction begins, but it does not contain the instruction itself.
+
+Instruction bytes must first become available and acquire meaning through the ISA.
+
+The decoded operation may then depend on values already present in registers, immediate values encoded in the instruction, or data that must be obtained through the memory hierarchy.
+
+Only after the required information is available can the architectural state transition complete.
+
+Control flow follows the same principle: sequential execution, branches, calls and returns ultimately determine the next value of the Program Counter.
+
+This exposes a broader engineering principle:
+
+> Observable state transitions depend on making the right information available under the right interpretation contract.
+
+The ISA defines the required architectural behavior, the compiler chooses instruction sequences that satisfy that contract, and the microarchitecture determines how those instructions are realized internally.
+
+---
+
+### Implications
+
+When investigating machine-level execution, avoid treating an instruction as an indivisible operation.
+
+Instead ask:
+
+- Where does the instruction come from?
+- Which contract gives its bits meaning?
+- Which operands does it require?
+- Where do those operands come from?
+- Which architectural state changes?
+- What determines the next instruction?
+- Which behavior is required by the ISA?
+- Which choices belong to the compiler?
+- Which details belong only to the microarchitecture?
+
+This perspective extends naturally to debugging, compilers, performance analysis, runtimes, native crashes and low-level systems work.
+
+---
+
+### Related Concepts
+
+- Instruction Execution
+- Program Counter
+- Instruction Encoding
+- Instruction Decoding
+- Operand
+- Architectural State
+- Control Flow
+- Instruction Set Architecture
+- Compiler
+- Microarchitecture
+- Memory Hierarchy
+
+------------------------------------------------------------------------------------------
