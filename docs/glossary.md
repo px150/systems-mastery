@@ -4035,3 +4035,170 @@ Profiling representative workloads helps engineers prioritize changes and evalua
 **Introduced In**
 
 Module 1.5 — Performance Fundamentals
+
+---
+
+
+## Translation Unit
+
+### Definition
+
+The source code resulting from preprocessing a C source file, including expanded headers and macros, that is compiled as a single unit.
+
+### Purpose
+
+Defines the boundary within which the compiler analyzes code and generates an object file independently of other translation units.
+
+### Systems Context
+
+Separate compilation allows large software projects to rebuild only affected translation units, provided their dependencies and interfaces remain compatible.
+
+### Related Concepts
+
+- Compilation
+- Object File
+- Declaration
+- Definition
+
+### Introduced In
+
+Module 2.1 — Compilation, Linking, and Object Files
+
+---
+
+## Object File
+
+### Definition
+
+A compiled binary artifact containing machine code, data, symbols and, when necessary, relocation information.
+
+### Purpose
+
+Allows separately compiled components to be combined without recompiling their source code.
+
+### Systems Context
+
+Relocatable object files are intermediate artifacts that a linker can combine into executables or libraries. They are not necessarily independently executable.
+
+### Related Concepts
+
+- Translation Unit
+- Symbol Resolution
+- Relocation
+- ELF
+
+### Introduced In
+
+Module 2.1 — Compilation, Linking, and Object Files
+
+---
+
+## Symbol Resolution
+
+### Definition
+
+The process of matching references to named program entities with their corresponding definitions during linking.
+
+### Purpose
+
+Allows independently compiled components to reference functions and data defined elsewhere.
+
+### Systems Context
+
+Object files can contain undefined symbols that must be resolved against other object files or libraries. Missing definitions and conflicting external definitions can prevent successful linking.
+
+### Related Concepts
+
+- Object File
+- Linking
+- Declaration
+- Definition
+- Relocation
+
+### Introduced In
+
+Module 2.1 — Compilation, Linking, and Object Files
+
+---
+
+## Relocation
+
+### Definition
+
+The process of adjusting address-dependent values in compiled code or data according to their final placement or runtime environment.
+
+### Purpose
+
+Allows code and data to reference symbols whose final locations were unknown during compilation.
+
+### Systems Context
+
+Object files contain relocation entries identifying locations that require adjustment, the relevant symbols and the calculations to apply. Relocations may be processed during linking or dynamic loading.
+
+### Related Concepts
+
+- Object File
+- Symbol Resolution
+- Linking
+- Program Counter
+- ELF
+
+### Introduced In
+
+Module 2.1 — Compilation, Linking, and Object Files
+
+---
+
+## Linking
+
+### Definition
+
+The process of combining compiled components, resolving symbol references and producing an executable, shared library or another linked artifact.
+
+### Purpose
+
+Enables independently compiled code to cooperate within a complete program or reusable library.
+
+### Systems Context
+
+Static linking incorporates required compiled code into the output artifact. Dynamic linking allows references to shared libraries to be resolved through mechanisms involving the runtime dynamic linker.
+
+### Related Concepts
+
+- Object File
+- Symbol Resolution
+- Relocation
+- Static Linking
+- Dynamic Linking
+
+### Introduced In
+
+Module 2.1 — Compilation, Linking, and Object Files
+
+---
+
+## Dynamic Linking
+
+### Definition
+
+A linking approach in which program dependencies on shared libraries are resolved using runtime dynamic-linking mechanisms.
+
+### Purpose
+
+Allows separately distributed programs to reuse shared libraries without incorporating all their code into each executable.
+
+### Systems Context
+
+Dynamic linking reduces duplication and can simplify library updates, but introduces runtime dependencies and compatibility constraints. An executable may link successfully yet fail to load because a required library or symbol version is unavailable.
+
+### Related Concepts
+
+- Linking
+- Symbol Resolution
+- ELF
+- Runtime Dependency
+- Program Loading
+
+### Introduced In
+
+Module 2.1 — Compilation, Linking, and Object Files

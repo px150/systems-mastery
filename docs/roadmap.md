@@ -722,7 +722,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 |-----------|----------------|-------------|-----------|--------------|
 | Phase 0   | ✅ Completed   | 2026-07-07 | 2026-09-27 |              |
 | Phase 1   | ✅ Completed   | 2026-09-28 | 2026-10-12 |              |
-| Phase 2   | ⚪ Not Started |            |            |              |
+| Phase 2   | 🟡 In Progress | 2026-10-13 |            |              |
 | Phase 3   | ⚪ Not Started |            |            |              |
 | Phase 4   | ⚪ Not Started |            |            |              |
 | Phase 5   | ⚪ Not Started |            |            |              |
@@ -759,6 +759,7 @@ The Capstone is not a new learning phase, but the integration and validation of 
 | 1.3 Memory Hierarchy           | ✅ Completed | 2026-10-03 | 2026-10-05 |
 | 1.4 Instruction Execution      | ✅ Completed | 2026-10-06 | 2026-10-07 |
 | 1.5 Performance Fundamentals   | ✅ Completed | 2026-10-08 | 2026-10-12 |
+| 2.1 Compilation, Linking...    | ✅ Completed | 2026-10-13 | 2026-11-02 |
 
 ---
 

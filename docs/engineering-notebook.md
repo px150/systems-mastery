@@ -1625,3 +1625,77 @@ This perspective connects algorithmic complexity, memory organization, compiler 
 * Performance Trade-off
 
 ------------------------------------------------------------------------------------------
+
+
+## Building Successfully Does Not Guarantee Executability
+
+**Context**
+
+Module 2.1 — Compilation, Linking, and Object Files
+
+---
+
+### Observation
+
+Compiling source code successfully does not guarantee that the resulting program can be linked, loaded, or executed.
+
+Each stage of the software build and execution pipeline validates different contracts.
+
+A failure at one stage cannot necessarily be detected by an earlier stage.
+
+---
+
+### Reasoning
+
+Compilation translates source code into machine instructions using the declarations and information available within each translation unit.
+
+Object files may contain unresolved symbols and relocation information without being executable themselves.
+
+Linking connects separately compiled components, resolves symbol references, and prepares an executable or shared library.
+
+Dynamic linking introduces additional runtime dependencies. A program may link successfully on one machine but fail to load on another because a required shared library is missing or incompatible.
+
+Even when loading succeeds, the machine code must be compatible with the target architecture and execution environment.
+
+This establishes a broader engineering principle:
+
+> Every system boundary introduces contracts whose validity must be established independently.
+
+---
+
+### Implications
+
+When investigating a build or deployment failure, avoid asking only:
+
+- Why does this program not work?
+
+Instead ask:
+
+- Did preprocessing and compilation succeed?
+- Were all required definitions available during linking?
+- Are the expected symbols and relocations present?
+- Does the executable target the correct ISA?
+- Are its runtime dependencies available and compatible?
+- Is the failure occurring during compilation, linking, loading, or execution?
+- Can the problem be reproduced by inspecting the generated artifacts?
+
+This perspective extends naturally to build systems, dependency management, container images, native libraries, cross-compilation, deployment pipelines, and production debugging.
+
+---
+
+### Related Concepts
+
+- Translation Unit
+- Object File
+- Symbol Resolution
+- Relocation
+- Static Linking
+- Dynamic Linking
+- ELF
+- Runtime Dependency
+- ABI Compatibility
+- Instruction Set Architecture
+- Program Loading
+- Build Reproducibility
+
+------------------------------------------------------------------------------------------
