@@ -1,4 +1,4 @@
-# Systems Mastery Roadmap (V1.1)
+# Systems Mastery Roadmap (V1.2)
 
 > *A living engineering curriculum for mastering modern software systems.*
 
@@ -35,6 +35,14 @@ Progress is measured by understanding and implementation rather than by the numb
 Module completion is governed by the criteria defined in `docs/mastery.md`.
 
 Progress is determined by demonstrated understanding rather than by content consumption or implementation alone.
+
+## Complementary Learning Paths
+
+Quick Mastery follows the exact module identifiers, titles, order and integration checkpoints of this roadmap, using concise theory and assessment. Its progress is recorded separately from full Systems Mastery completion. A Quick Mastery pass does not imply that the corresponding implementation, experiments or documentation are complete.
+
+Linux Mastery supports host-level observation and diagnosis. AI Engineering Labs provide applied, incremental software and platform engineering experience, including CI/CD, cloud-native delivery, developer platforms and controlled enterprise workflow automation. Shared concepts should reinforce one another without requiring duplicate implementations. Tool-specific training, certifications and agent orchestration belong to these complementary paths, not to a new mandatory Systems Mastery phase.
+
+When agents assist engineering work, assess the learner's understanding of requirements, architecture, constraints, evidence and trade-offs. Agents may generate artifacts, tests and diagnostic reports; the learner must independently verify decisive evidence and justify design or recovery decisions. Use manual experiments when they reveal a mechanism or provide an essential fallback, not as repetition of automatable work.
 
 ---
 
@@ -391,6 +399,12 @@ Understand how software systems communicate across machines and exchange data re
 * 5.4 HTTP Fundamentals
 * 5.5 HTTP Servers and Clients
 * 5.6 RPC and gRPC
+* 5.7 DNS and Name Resolution
+* 5.8 TLS and HTTPS from the Network Perspective
+* 5.9 Reverse Proxies and Traffic Routing
+* 5.10 End-to-End Network Troubleshooting
+
+Study DNS resolution, caching and TTL; TLS handshakes, certificate validation and termination; proxying and request routing; and evidence-based diagnosis across DNS, TCP, TLS and HTTP. Phase 11 deepens load balancing and resilience; Phase 12 deepens cryptography and TLS security. The original module 5.6 retains its identity.
 
 Repository components:
 
@@ -412,6 +426,10 @@ Understand how modern backend services are structured and how requests flow thro
 * 6.4 Request Lifecycle
 * 6.5 Authentication Fundamentals
 * 6.6 Configuration and Dependency Injection
+* 6.7 API Contracts, Compatibility, and Error Semantics
+* 6.8 Modularity, Boundaries, and Architectural Decisions
+
+Connect request handling to service contracts, validation, compatibility, cohesion, coupling, dependency direction, non-functional requirements and lightweight architecture decision records. Apply trade-offs rather than prescribing a single architecture.
 
 Repository components:
 
@@ -441,7 +459,7 @@ Validate the transition from standalone applications to networked software syste
 
 ### Outcome
 
-A production-style HTTP service implemented entirely from first principles.
+A production-style HTTP service implemented from first principles where educationally valuable, with a documented API contract and an explainable request path through network resolution, security and proxy boundaries.
 
 ---
 
@@ -459,6 +477,9 @@ Understand how modern software systems store, retrieve, and organize data effici
 * 7.4 Query Processing
 * 7.5 Caching
 * 7.6 Key-Value Storage
+* 7.7 Durability, Write-Ahead Logging, Backup and Recovery
+
+Phase 7.3 explicitly includes isolation, concurrency anomalies, locks and transaction boundaries. Phase 7.7 distinguishes crash recovery from backup and restore; validate recovery on disposable data.
 
 Repository components:
 
@@ -481,6 +502,9 @@ Understand how software systems scale beyond a single machine while remaining re
 * 8.5 Consensus
 * 8.6 Message Queues
 * 8.7 Event-Driven Architectures
+* 8.8 Partitioning, Sharding, and Data Placement
+
+In 8.2 and 8.6 address partial failure, deadlines, duplicate delivery and ordering. In 8.7 connect idempotency, transactional outbox and workflow state to concrete failure scenarios. Phase 11 revisits these mechanisms as reliability policies.
 
 Repository components:
 
@@ -551,6 +575,13 @@ Understand how modern software systems are packaged, deployed, and executed reli
 * 10.4 Orchestration Fundamentals
 * 10.5 Kubernetes Architecture
 * 10.6 Service Discovery
+* 10.7 Build Artifacts and CI/CD Fundamentals
+* 10.8 Cloud Infrastructure, Network Boundaries, and Identity
+* 10.9 Infrastructure as Code and State Management
+* 10.10 Declarative Delivery and GitOps
+* 10.11 Platform Engineering and Internal Developer Platforms
+
+Keep the focus on principles: reproducible builds and delivery gates; network and IAM boundaries; desired state, plans, drift and reconciliation; self-service, golden paths, platform APIs and developer experience. Use concrete tools only as needed for experiments. The AI Engineering Labs own tool-specific workflows, deployment demos and end-to-end platform projects; do not duplicate them as a second mandatory tool curriculum.
 
 Repository components:
 
@@ -579,6 +610,8 @@ Validate the transition from standalone applications to deployable production sy
 * observe system behavior
 * debug distributed applications
 * understand production deployment architectures
+* reason about reproducible builds, delivery gates, desired state, drift, rollback and least-privilege deployment
+* explain how a self-service platform exposes capabilities through safe, documented interfaces
 
 ### Outcome
 
@@ -601,6 +634,11 @@ Understand how production systems remain available, scalable, resilient, and mai
 * 11.5 Circuit Breakers
 * 11.6 Retries and Backoff
 * 11.7 Graceful Shutdown
+* 11.8 Service-Level Objectives and Error Budgets
+* 11.9 Capacity, Backpressure, and Overload Management
+* 11.10 Safe Releases, Rollback, and Recovery
+
+Use measurable indicators, load tests, bounded queues, rollout strategies and recovery validation. Distinguish SLOs from contractual SLAs. Connect retries to idempotency and end-to-end time budgets.
 
 Repository components:
 
@@ -624,6 +662,9 @@ Understand how modern software systems protect data, services, and infrastructur
 * 12.5 Secrets Management
 * 12.6 Common Vulnerabilities
 * 12.7 Secure Software Engineering
+* 12.8 Software Supply Chain and Workload Identity
+
+Cover dependency provenance, least-privilege CI permissions, secrets isolation, artifact integrity and workload identities. Revisit the authentication and authorization foundations rather than duplicating them.
 
 Repository components:
 
@@ -804,11 +845,11 @@ The roadmap exists to maximize learning—not to constrain it.
 
 # Roadmap Governance
 
-**Version:** V1.1
+**Version:** V1.2
 
-**Status:** Approved
+**Status:** Proposed revision for reconciliation with the current repository
 
-**Approval Date:** 2026-09-21
+**Previous approved version:** V1.1 (2026-09-21)
 
 
 ## V1.1 Approved Modification — Language Strategy
@@ -835,6 +876,28 @@ The change preserves low-level depth while reducing incidental language complexi
 * Later modules may choose C, Python, or Go according to the mechanism being studied.
 * No systems topic or integration checkpoint is removed.
 * Existing completed Phase 0 work is unaffected.
+
+## V1.2 Proposed Modification — Networking and Production Delivery Foundations
+
+### Observation
+
+The V1.1 networking phase ends at RPC and gRPC without an explicit treatment of DNS, network-facing TLS, proxies or end-to-end network diagnosis. Its infrastructure phase covers containers and orchestration but not the principles of delivery pipelines, cloud boundaries, infrastructure as code, GitOps or self-service developer platforms. Additional gaps concern API contracts, architecture boundaries, data durability and partitioning, measurable reliability and software supply-chain security.
+
+### Proposal
+
+Append the modules introduced above to their existing phases. Preserve every existing module identifier, all existing phases and integration checkpoints. Clarify the relationship between Systems Mastery, Quick Mastery, Linux Mastery and AI Engineering Labs, and separate their completion records.
+
+### Motivation
+
+These mechanisms are prerequisites for reasoning about real systems and platform engineering. The changes strengthen the existing systems-first curriculum without turning it into a cloud-provider certification syllabus, a tool catalog, or a separate AI-agent curriculum.
+
+### Impact
+
+* Existing completed work remains valid; no existing module is removed or renumbered.
+* The DNS lesson previously delivered as Quick Mastery 5.6 is supplementary evidence for the proposed 5.7, not completion of 5.6 RPC and gRPC. Credit it only after confirming the assessment outcome.
+* New modules are introduced as the learner reaches their phase. Do not retroactively mark new modules complete.
+* Before adoption, compare this revision against the live repository, reconcile existing additions and preserve its current progress records. This draft is based on the archived V1.1 copy; its status table is not a current progress report.
+* Practical exercises should reuse appropriate lab artifacts and avoid duplicate work, while full Systems Mastery retains its mastery criteria.
 
 Future modifications are permitted only when justified by one of the following:
 
